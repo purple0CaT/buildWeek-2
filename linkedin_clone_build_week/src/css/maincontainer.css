@@ -1,0 +1,68 @@
+a {
+  color: unset !important;
+}
+* {
+  box-sizing: border-box;
+}
+.person-info {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 28rem;
+  border: 1px solid rgba(128, 128, 128, 0.281);
+}
+.bg-image {
+  position: relative;
+  height: 20% !important;
+  object-fit: cover;
+}
+.bg-image img {
+  width: 100%;
+  max-height: 12rem;
+  object-fit: cover;
+}
+.avatar {
+  position: absolute;
+  height: 10rem;
+  width: 10rem;
+  object-fit: cover;
+  top: 20%;
+  left: 4%;
+  border-radius: 50%;
+  border: 5px solid white;
+}
+
+.edit-cover {
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
+  position: absolute;
+  border-radius: 50%;
+  background-color: white;
+  color: rgb(97, 97, 255);
+  top: 1rem;
+  right: 2rem;
+}
+.name-box {
+  padding: 3.5rem 1.5rem 1.5rem 1.5rem !important;
+}
+.contact-info {
+  color: #2f7dcb !important;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .avatar {
+    top: 5%;
+  }
+}
+@media screen and (max-width: 991px) {
+  .avatar {
+    top: 5%;
+  }
+}
+.btn {
+  border-radius: 20px !important;
+  padding: 0.2rem 0.8rem !important;
+  margin: 0 0.2rem;
+}

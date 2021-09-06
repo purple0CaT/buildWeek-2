@@ -22,3 +22,5 @@ const Home = () => {
 };
 
 export default Home;
+
+import MainContainer from "./MainContainer";

@@ -1,0 +1,63 @@
+.modal-dialog {
+  margin: 2.5rem auto !important;
+  max-width: 62% !important;
+  max-height: 92vh !important;
+  width: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: unset !important;
+}
+.modal-content {
+  border: unset !important;
+  overflow-y: scroll !important;
+  height: 92vh;
+}
+.form-control:hover {
+  box-shadow: unset !important;
+  border: 2px solid gray !important;
+}
+.form-control:focus {
+  box-shadow: unset !important;
+  border: 2px solid gray !important;
+}
+.form-control {
+  color: black;
+  border: 1px solid black !important;
+}
+form label {
+  font-size: 0.9rem;
+  color: rgb(85, 85, 85);
+  margin: 0 0.1rem;
+}
+.addFormerBtn {
+  color: #296fb9;
+  cursor: pointer;
+}
+
+.checkbox-edit input {
+  transform: scale(1.6);
+}
+.contact-info-change {
+  border: unset !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid black !important;
+  height: 2.5rem !important;
+}
+.edit-pencil-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+  cursor: pointer;
+  color: rgb(57, 122, 243);
+  height: 2rem !important;
+  aspect-ratio: 1/1;
+  font-size: 1rem !important;
+  transition: 0.3s;
+}
+
+.edit-pencil-contact:hover {
+  border-radius: 50%;
+  background-color: #e3f0fe;
+}
