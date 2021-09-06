@@ -1,15 +1,32 @@
 import {
-  Navbar, Nav, FormControl, Button, Col, Row, Container, Form, NavDropdown, Image, Card } from "react-bootstrap"
-import React from "react"
+  Navbar,
+  Nav,
+  FormControl,
+  Button,
+  Col,
+  Row,
+  Container,
+  Form,
+  NavDropdown,
+  Image,
+  Card,
+} from "react-bootstrap";
+import React from "react";
 import {
-  BsFillHouseDoorFill, BsPeopleFill, BsChatQuoteFill, BsBellFill, BsFillCalendarFill, BsSearch } from "react-icons/bs"
-import { FcFilm, FcComboChart, FcBusinessContact } from "react-icons/fc"
-import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai" 
-import { FaSuitcase, FaTeamspeak } from "react-icons/fa"
-import { GrWaypoint } from "react-icons/gr"
-import { GiReceiveMoney } from "react-icons/gi"
-import { RiPhoneFindLine, RiAdvertisementFill } from "react-icons/ri"
-import pro from "./download.png"
+  BsFillHouseDoorFill,
+  BsPeopleFill,
+  BsChatQuoteFill,
+  BsBellFill,
+  BsFillCalendarFill,
+  BsSearch,
+} from "react-icons/bs";
+import { FcFilm, FcComboChart, FcBusinessContact } from "react-icons/fc";
+import { AiOutlineClose, AiOutlinePlus } from "react-icons/ai";
+import { FaSuitcase, FaTeamspeak } from "react-icons/fa";
+import { GrWaypoint } from "react-icons/gr";
+import { GiReceiveMoney } from "react-icons/gi";
+import { RiPhoneFindLine, RiAdvertisementFill } from "react-icons/ri";
+import pro from "./download.png";
 
 const LinkedinNavbar = () => {
   return (
@@ -45,7 +62,7 @@ const LinkedinNavbar = () => {
               </Navbar.Brand>
             </Navbar>
           </Col>
-           <Col xs={1}>
+          <Col xs={1}>
             <Row className="NavIco">
               <Nav.Link>
                 <BsFillHouseDoorFill />
@@ -59,7 +76,7 @@ const LinkedinNavbar = () => {
           <Col xs={1}>
             <Row className="NavIco">
               <Nav.Link>
-                <BsPeopleFill/>
+                <BsPeopleFill />
               </Nav.Link>
             </Row>
             <Row className="navName">
@@ -67,9 +84,9 @@ const LinkedinNavbar = () => {
             </Row>
           </Col>
           <Col xs={1}>
-            <Row className="NavIco"> 
+            <Row className="NavIco">
               <Nav.Link>
-                <FaSuitcase/>
+                <FaSuitcase />
               </Nav.Link>
             </Row>
             <Row className="navName">
@@ -79,7 +96,7 @@ const LinkedinNavbar = () => {
           <Col xs={1}>
             <Row className="NavIco">
               <Nav.Link>
-                <BsChatQuoteFill/>
+                <BsChatQuoteFill />
               </Nav.Link>
             </Row>
             <Row className="navName">
@@ -89,7 +106,7 @@ const LinkedinNavbar = () => {
           <Col xs={1}>
             <Row className="NavIco">
               <Nav.Link>
-                <BsBellFill/>
+                <BsBellFill />
               </Nav.Link>
             </Row>
             <Row className="navName">
@@ -101,11 +118,7 @@ const LinkedinNavbar = () => {
             <Row className="NavIco">
               <Nav.Link>
                 <Col xs={6} md={4}>
-                  <Image
-                    id="miniat"
-                    src={pro}
-                    roundedCircle
-                  />
+                  <Image id="miniat" src={pro} roundedCircle />
                 </Col>
               </Nav.Link>
             </Row>
@@ -116,23 +129,17 @@ const LinkedinNavbar = () => {
                     <Col>
                       <Image
                         id="miniat"
-                        src ={pro}
+                        src={pro}
                         roundedCircle
                         className="d-flex"
                       />
                     </Col>
-                    <Col id="" className="d-flex m-1">
-
-                    </Col>
+                    <Col id="" className="d-flex m-1"></Col>
                     <Col className="d-flex m-1">
                       Strive School Student <br /> Full Stack Developer
                     </Col>
                   </Row>
-                  <Button
-                  
-                    id="button-myPage"
-                    variant="outline-primary"
-                  >
+                  <Button id="button-myPage" variant="outline-primary">
                     View Profile
                   </Button>
                 </NavDropdown.Item>
@@ -162,13 +169,13 @@ const LinkedinNavbar = () => {
           <Col xs={1}>
             <Row className="NavIco">
               <Nav.Link>
-                <BsFillCalendarFill/>
+                <BsFillCalendarFill />
               </Nav.Link>
             </Row>
             <Row>
               <NavDropdown id="navnMe" title="Work">
                 <NavDropdown.Item>
-                  <AiOutlineClose/>
+                  <AiOutlineClose />
                 </NavDropdown.Item>
                 <NavDropdown.Item id="dropMe">
                   Visit more LinkedIn Products
@@ -176,37 +183,37 @@ const LinkedinNavbar = () => {
                 <Card style={{ width: "23rem" }}>
                   <Row className="multy-Icons">
                     <Col>
-                      <FcFilm/>
+                      <FcFilm />
                       <p id="dropMe2">Learning</p>
                     </Col>
                     <Col>
-                      <FcComboChart/>
+                      <FcComboChart />
                       <p id="dropMe2">Insights</p>
                     </Col>
                     <Col>
-                      <FcBusinessContact/>
+                      <FcBusinessContact />
                       <p id="dropMe2">Public a Job Offer</p>
                     </Col>
                     <Col>
-                      <RiAdvertisementFill/>
+                      <RiAdvertisementFill />
                       <p id="dropMe2">Advert.</p>
                     </Col>
                   </Row>
                   <Row className="multy-Icons">
                     <Col>
-                      <GrWaypoint/>
+                      <GrWaypoint />
                       <p id="dropMe2">Find lead</p>
                     </Col>
                     <Col>
-                      <FaTeamspeak/>
+                      <FaTeamspeak />
                       <p id="dropMe2">Teams</p>
                     </Col>
                     <Col>
-                      <RiPhoneFindLine/>
+                      <RiPhoneFindLine />
                       <p id="dropMe2">ProFinder</p>
                     </Col>
                     <Col>
-                      <GiReceiveMoney/>
+                      <GiReceiveMoney />
                       <p id="dropMe2">Salary</p>
                     </Col>
                   </Row>
@@ -233,10 +240,12 @@ const LinkedinNavbar = () => {
                     <NavDropdown.Item id="dropMe">
                       <b>Post a free job offer</b>
                       <p>
-                        <small>Reach the best candidates with your job offer</small>
+                        <small>
+                          Reach the best candidates with your job offer
+                        </small>
                       </p>
                     </NavDropdown.Item>
-                       <NavDropdown.Item id="dropMe">
+                    <NavDropdown.Item id="dropMe">
                       <b>Marketing Solutions</b>
                       <p>
                         <small>Acquire customers and grow your business</small>
@@ -245,12 +254,14 @@ const LinkedinNavbar = () => {
                     <NavDropdown.Item id="dropMe">
                       <b>Learning Solutions</b>
                       <p>
-                        <small>Promote the acquisition of skills in your organization</small>
+                        <small>
+                          Promote the acquisition of skills in your organization
+                        </small>
                       </p>
                     </NavDropdown.Item>
                     <NavDropdown.Item id="dropMe">
                       <b>Create a new Business page</b>
-                      <AiOutlinePlus id="spaceMe"/>
+                      <AiOutlinePlus id="spaceMe" />
                     </NavDropdown.Item>
                   </Card.Body>
                 </Card>
@@ -260,7 +271,7 @@ const LinkedinNavbar = () => {
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default LinkedinNavbar
+export default LinkedinNavbar;
