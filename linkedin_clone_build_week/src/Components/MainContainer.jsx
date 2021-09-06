@@ -68,14 +68,14 @@ export default function MainContainer() {
                   Bootle, England, United Kingdom
                 </small>{" "}
                 ·{" "}
-                <small className="ml-1 font-weight-bold">
+                <small className="ml-1 contact-info font-weight-bold">
                   <a href="">Contact info</a>
                 </small>{" "}
               </div>
               <div className='mt-3'>
-                  <Button>Open to</Button>
-                  <Button variant='outline-secondary'>Add section</Button>
-                  <Button variant='outline-secondary'>More</Button>
+                  <Button className='font-weight-bold'>Open to</Button>
+                  <Button className='font-weight-bold' variant='outline-secondary'>Add section</Button>
+                  <Button className='font-weight-bold' variant='outline-secondary'>More</Button>
               </div>
             </Col>
             {/* RIGHT SIDE */}
