@@ -3,6 +3,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { ImPencil } from "react-icons/im";
 import "../css/maincontainer.css";
+import EditInfo from "./EditInfo";
 
 export default function MainContainer() {
   const url = "https://striveschool-api.herokuapp.com/api/profile/me";
@@ -94,7 +95,7 @@ export default function MainContainer() {
               <Col xs="4" className="d-flex flex-column p-4">
                 {" "}
                 <div className="d-flex justify-content-end">
-                  <ImPencil size="1.2rem" className="text-muted" />
+                  <EditInfo />
                 </div>
                 <a href="" className="d-flex align-items-center">
                   <img
@@ -108,7 +109,7 @@ export default function MainContainer() {
             </Col>
           </Row>
         </div>
-      )}
+      )}{" "}
     </>
   );
 }
