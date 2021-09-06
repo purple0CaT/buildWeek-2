@@ -46,7 +46,6 @@ export default function EditInfo({ name, surname, title, area, personId }) {
       let response = await fetch("https://restcountries.eu/rest/v2/all");
       if (response.ok) {
         let dataCount = await response.json();
-        console.log(dataCount);
         setCountries({ data: dataCount });
       } else {
         console.log("Error");
@@ -249,7 +248,9 @@ export default function EditInfo({ name, surname, title, area, personId }) {
                     <option>Locations...</option>
                     {Countries.data ? (
                       Countries.data.map((count) => (
-                        <option key={count.name+count.numericCode}>{count.name}</option>
+                        <option key={count.name + count.numericCode}>
+                          {count.name}
+                        </option>
                       ))
                     ) : (
                       <option>Locations...</option>
