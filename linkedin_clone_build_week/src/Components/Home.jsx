@@ -15,13 +15,12 @@ const Home = () => {
       <Row>
         <Col sm={12} md={9}>
           <br />
-          <MainContainer />
+          {/* PASS THE ID IN clickId */}
+          <MainContainer clickId={null} />
           <Dashboard />
           <About />
           <Activity />
           <Footer />
-          {/* PASS THE ID IN clickId */}
-          <MainContainer clickId={null}/>
         </Col>
         <Col sm={0} md={3}>
           <Aside />
