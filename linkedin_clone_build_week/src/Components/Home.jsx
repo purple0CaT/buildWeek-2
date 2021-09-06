@@ -1,4 +1,5 @@
 import { Row, Container, Col } from "react-bootstrap";
+import Aside from "./Aside";
 import Footer from "./Footer";
 import SideFooter from "./SideFooter";
 const Home = () => {
@@ -10,7 +11,7 @@ const Home = () => {
           <Footer />
         </Col>
         <Col sm={0} md={3}>
-          <h1>Aside</h1>
+          <Aside />
           <SideFooter />
         </Col>
       </Row>
