@@ -96,7 +96,13 @@ export default function MainContainer() {
               <Col xs="4" className="d-flex flex-column p-4">
                 {" "}
                 <div className="d-flex justify-content-end">
-                  <EditInfo personId={PersonInfo.data.id} />
+                  <EditInfo
+                    personId={PersonInfo.data._id}
+                    name={PersonInfo.data.name}
+                    surname={PersonInfo.data.surname}
+                    area={PersonInfo.data.area}
+                    title={PersonInfo.data.title}
+                  />
                 </div>
                 <a href="" className="d-flex align-items-center">
                   <img

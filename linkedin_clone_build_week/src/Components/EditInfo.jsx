@@ -6,7 +6,7 @@ import { AiFillEye } from "react-icons/ai";
 
 import "../css/editModal.css";
 
-export default function EditInfo({ personId }) {
+export default function EditInfo({name,surname, title, area, personId }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -15,12 +15,12 @@ export default function EditInfo({ personId }) {
   const url = "https://striveschool-api.herokuapp.com/api/profile/me";
   //   EDITING INFO
   const [EditingInfo, setEditingInfo] = useState({
-    name: "",
-    surname: "",
+    name: name,
+    surname: surname,
     email: "",
     bio: "",
-    title: "",
-    area: "",
+    title: title,
+    area: area,
     username: "",
   });
   // Data set
@@ -35,7 +35,7 @@ export default function EditInfo({ personId }) {
   //   FETCH
   const postData = async () => {
     try {
-      let response = await fetch(url, {
+      let response = await fetch(url+personId, {
         method: "PUT",
         body: JSON.stringify(EditingInfo),
         headers: {
@@ -143,7 +143,7 @@ export default function EditInfo({ personId }) {
                   <Form.Label>Headline *</Form.Label>
                   <Form.Control
                     type="text"
-                    value={EditingInfo.surname}
+                    value={EditingInfo.title}
                     onChange={(e) => dataSet("surname", e.target.value)}
                     placeholder="... text"
                   />
