@@ -1,38 +1,229 @@
 .App {
   text-align: center;
+  background-color: #f3f2ef;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+footer ul li {
+  list-style: none;
+  text-align: start;
+  font-size: 12px;
+  color: #00000099;
+  font-weight: bold;
+  line-height: 2;
+}
+.aside-card {
+  padding: 12px;
+}
+.big-font {
+  font-size: 14px;
+}
+#dropdown-button-drop-up {
+  color: #00000099;
+  background-color: #f2f3ef;
+  padding: 0px 32px 0px 8px;
+  font-size: 14px;
+  border-color: #00000099;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.badge small {
+  font-size: 13px;
+}
+
+.title small {
+  font-size: 12px;
+  color: #0000008c;
+}
+
+.imgs img {
+  width: 60px;
+  margin-bottom: 5px;
+}
+.body-text {
+  font-size: 15px;
+}
+.card-imgs img {
+  width: 40px;
+}
+.card-person .card-title {
+  font-size: 14px;
+  color: #000000e6;
+  font-weight: bold;
+  text-align: start;
+}
+.card-person .card-subtitle {
+  font-size: 12px;
+  color: #00000099;
+}
+
+#learning .card-imgs img {
+  width: 56px;
+}
+
+#viewed,
+#may-know,
+#learning {
+  margin: 24px 0px 0px;
+  padding: 24px 16px 12px;
+}
+
+ul.people {
+  margin: 0;
+  padding: 0;
+}
+
+#viewed,
+#may-know,
+button {
+  border-radius: 20px;
+  margin: 0px 0px 0px 16px;
+  padding: 6px 16px;
+}
+#viewed,
+#may-know,
+div.text-left button {
+  left: 0;
+  margin-left: 0px;
+  border-radius: 20px;
+  padding: 6px 16px;
+}
+
+.icon {
+  text-align: end;
+}
+
+/* NAVBAR EMANUELE CSS */
+
+#linkedIn-navbar {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+}
+
+
+.Left-ico-search {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  align-items: baseline;
+  padding-right: 3px;
+  margin-top: 5px;
+  margin-right: 35px;
+}
+
+#nav23 {
+  padding: 0px;
+}
+
+div.col-1 {
+  font-size: 13px;
+  color: rgb(122, 119, 119);
+}
+
+.NavIco.row {
+  font-size: 28px;
+  color: rgb(112, 112, 112);
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+#NavIcon {
+  font-size: 20px;
+  color: rgb(112, 112, 112);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 8px;
+  border-right: none;
+  background-color: rgb(232, 245, 253);
+}
+.navName.row {
+  justify-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.navName.row:hover {
+  justify-content: center;
+  border-bottom: solid rgb(48, 18, 218) 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+a.nav-link {
+  padding: 0%;
+  color: rgb(112, 112, 112);
+}
+
+a.nav-link:hover {
+  padding: 0%;
+  color: rgb(48, 18, 218);
+}
+
+#navnMe {
+  padding-left: 28px;
+}
+
+#searchBar {
+  border: none;
+  background-color: rgb(232, 245, 253);
+  border-radius: 5px;
+}
+
+#miniat {
+  height: 30px;
+}
+
+#meForm {
+  width: 300px;
+  color: rgb(75, 75, 52);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+#dropMe {
+  font-size: 14px;
+  padding: 3px;
+  color: rgb(131, 127, 127);
+  padding-left: 25px;
+}
+#button-myPage {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: bolder;
+  display: flex;
+  width: 100%;
+  display: flex;
+  padding: 2px;
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.multy-Icons {
+  margin-left: 19px;
+  margin-right: 19px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+  color: rgb(101, 101, 102);
+}
+
+#spaceMe {
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  padding-left:  7px;
+}
+
+#dropMe2 {
+  font-size: 14px;
+  padding: 3px;
+  color: rgb(131, 127, 127);
 }
