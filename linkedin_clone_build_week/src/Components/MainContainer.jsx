@@ -9,13 +9,14 @@ export default function MainContainer() {
   const url = "https://striveschool-api.herokuapp.com/api/profile/me";
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA";
-  const { REACT_APP_API_TOKEN_ACCESS, REACT_APP_WEBSITE_NAME } = process.env;
+
   const personId = "";
   const [PersonInfo, setPersonInfo] = useState([]);
   //   !
   //   UPDATE INFO
   useEffect(() => {
     fetchPerson();
+    console.log(process.env.REACT_APP_TOKENACCESS);
   }, []);
   //   !
   //   FETCHING
@@ -95,7 +96,7 @@ export default function MainContainer() {
               <Col xs="4" className="d-flex flex-column p-4">
                 {" "}
                 <div className="d-flex justify-content-end">
-                  <EditInfo />
+                  <EditInfo personId={PersonInfo.data.id} />
                 </div>
                 <a href="" className="d-flex align-items-center">
                   <img
