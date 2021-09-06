@@ -1,18 +1,25 @@
 import React from "react";
 import { Modal, Button, Row, Col, Form } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ImPencil } from "react-icons/im";
 import { AiFillEye } from "react-icons/ai";
 
 import "../css/editModal.css";
 
-export default function EditInfo({name,surname, title, area, personId }) {
+export default function EditInfo({ name, surname, title, area, personId }) {
+  // CONSTANT
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [FormerName, setFormerName] = useState();
+  //   REFRESH
+  useEffect(() => {
+    fetchCountries();
+  }, []);
   //   URL
   const url = "https://striveschool-api.herokuapp.com/api/profile/me";
+  //   COUNTRIES
+  const [Countries, setCountries] = useState({});
   //   EDITING INFO
   const [EditingInfo, setEditingInfo] = useState({
     name: name,
@@ -32,10 +39,26 @@ export default function EditInfo({name,surname, title, area, personId }) {
     postData();
     handleClose();
   };
-  //   FETCH
+  //   FETCHING COUNTRIES
+
+  const fetchCountries = async () => {
+    try {
+      let response = await fetch("https://restcountries.eu/rest/v2/all");
+      if (response.ok) {
+        let dataCount = await response.json();
+        console.log(dataCount);
+        setCountries({ data: dataCount });
+      } else {
+        console.log("Error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  //   POSTING DATA
   const postData = async () => {
     try {
-      let response = await fetch(url+personId, {
+      let response = await fetch(url + personId, {
         method: "PUT",
         body: JSON.stringify(EditingInfo),
         headers: {
@@ -224,8 +247,13 @@ export default function EditInfo({name,surname, title, area, personId }) {
                   <Form.Label>Locations within this area</Form.Label>
                   <Form.Control as="select" defaultValue="Locations...">
                     <option>Locations...</option>
-                    <option>Locations...</option>
-                    <option>Locations...</option>
+                    {Countries.data ? (
+                      Countries.data.map((count) => (
+                        <option key={count.name+count.numericCode}>{count.name}</option>
+                      ))
+                    ) : (
+                      <option>Locations...</option>
+                    )}
                   </Form.Control>
                 </Form.Group>
               </Col>
@@ -249,7 +277,7 @@ export default function EditInfo({name,surname, title, area, personId }) {
                 <Form.Group controlId="formcontactInfo">
                   <Form.Label>Contact info</Form.Label>
                   <div className="contact-info-change d-flex justify-content-between align-items-end">
-                    <p className='mb-0'>Some text</p>
+                    <p className="mb-0">Some text</p>
                     <div className="edit-pencil-contact">
                       <ImPencil />
                     </div>

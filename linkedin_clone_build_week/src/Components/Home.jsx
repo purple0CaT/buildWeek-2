@@ -6,7 +6,9 @@ const Home = () => {
     <Container>
       <Row>
         <Col sm={12} md={9}>
-          <MainContainer />
+          <br />
+          {/* PASS THE ID IN clickId */}
+          <MainContainer clickId={null}/>
         </Col>
         <Col sm={0} md={3}>
           <h1>Aside</h1>

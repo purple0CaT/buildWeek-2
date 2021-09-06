@@ -5,8 +5,10 @@ import { ImPencil } from "react-icons/im";
 import "../css/maincontainer.css";
 import EditInfo from "./EditInfo";
 
-export default function MainContainer() {
-  const url = "https://striveschool-api.herokuapp.com/api/profile/me";
+export default function MainContainer({ clickId }) {
+  const url = clickId
+    ? "https://striveschool-api.herokuapp.com/api/profile/" + clickId
+    : "https://striveschool-api.herokuapp.com/api/profile/me";
   const token =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA";
 
