@@ -1,0 +1,11 @@
+.activity-container {
+ 
+  background-color: white;
+  border: 1px solid #F3F2EF ;
+  border-radius: 10px;
+  
+}
+.followers {
+  color: #0A66C2;
+font-weight: 600;
+}
