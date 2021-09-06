@@ -10,6 +10,7 @@ a {
   overflow: hidden;
   max-height: 28rem;
   border: 1px solid rgba(128, 128, 128, 0.281);
+  background-color: white;
 }
 .bg-image {
   position: relative;
