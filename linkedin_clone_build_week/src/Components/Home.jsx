@@ -11,8 +11,6 @@ const Home = () => {
       <Row>
         <Col sm={12} md={9}>
           <br />
-          <br />
-          <br />
           <MainContainer />
           <Footer />
         </Col>
