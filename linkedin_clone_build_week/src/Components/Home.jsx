@@ -1,8 +1,10 @@
 import { Row, Container, Col } from "react-bootstrap";
+import LinkedinNavbar from "./Navbar";
 
 const Home = () => {
   return (
     <Container>
+      <LinkedinNavbar/>
       <Row>
         <Col sm={12} md={9}>
           <h1>MainContainer</h1>
