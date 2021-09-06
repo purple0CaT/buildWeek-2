@@ -3,6 +3,11 @@
   background-color: #f3f2ef;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
 footer ul li {
   list-style: none;
   text-align: start;

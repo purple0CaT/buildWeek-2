@@ -61,7 +61,7 @@ const Aside = () => {
           <ViewedPeople message="Connect" />
         </Card>
       </Row>
-      <Row className="mt-4">
+      <Row className="mt-4 mb-5">
         <Card id="learning">
           <Card.Title>
             Add new skills with these courses, free for 24 hours
