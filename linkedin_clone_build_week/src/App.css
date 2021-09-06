@@ -1,40 +1,104 @@
 .App {
   text-align: center;
+  background-color: #f3f2ef;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+footer ul li {
+  list-style: none;
+  text-align: start;
+  font-size: 12px;
+  color: #00000099;
+  font-weight: bold;
+  line-height: 2;
+}
+.aside-card {
+  padding: 12px;
+}
+.big-font {
+  font-size: 14px;
+}
+#dropdown-button-drop-up {
+  color: #00000099;
+  background-color: #f2f3ef;
+  padding: 0px 32px 0px 8px;
+  font-size: 14px;
+  border-color: #00000099;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.badge small {
+  font-size: 13px;
 }
 
-.App-link {
-  color: #61dafb;
+.title small {
+  font-size: 12px;
+  color: #0000008c;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.imgs img {
+  width: 60px;
+  margin-bottom: 5px;
+}
+.body-text {
+  font-size: 15px;
+}
+.card-imgs img {
+  width: 40px;
+}
+.card-person .card-title {
+  font-size: 14px;
+  color: #000000e6;
+  font-weight: bold;
+  text-align: start;
+}
+.card-person .card-subtitle {
+  font-size: 12px;
+  color: #00000099;
+}
+
+#learning .card-imgs img {
+  width: 56px;
+}
+
+#viewed,
+#may-know,
+#learning {
+  margin: 24px 0px 0px;
+  padding: 24px 16px 12px;
+}
+
+ul.people {
+  margin: 0;
+  padding: 0;
+}
+
+#viewed,
+#may-know,
+button {
+  border-radius: 20px;
+  margin: 0px 0px 0px 16px;
+  padding: 6px 16px;
+}
+#viewed,
+#may-know,
+div.text-left button {
+  left: 0;
+  margin-left: 0px;
+  border-radius: 20px;
+  padding: 6px 16px;
+}
+
+.icon {
+  text-align: end;
 }
 
 /* NAVBAR EMANUELE CSS */
