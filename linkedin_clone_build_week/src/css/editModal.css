@@ -41,14 +41,17 @@ form label {
   border: unset !important;
   border-radius: 0 !important;
   border-bottom: 1px solid black !important;
-  margin: 5px 2px;
+  height: 2.5rem !important;
 }
 .edit-pencil-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
   float: right;
   cursor: pointer;
   color: rgb(57, 122, 243);
-  height: 100% !important;
+  height: 2rem !important;
   aspect-ratio: 1/1;
   font-size: 1rem !important;
   transition: 0.3s;

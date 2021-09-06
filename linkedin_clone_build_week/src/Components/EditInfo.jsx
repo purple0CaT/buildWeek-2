@@ -248,8 +248,8 @@ export default function EditInfo({ personId }) {
               <Col xs="12">
                 <Form.Group controlId="formcontactInfo">
                   <Form.Label>Contact info</Form.Label>
-                  <div className="contact-info-change ">
-                    123123213, 123123 ,123123{" "}
+                  <div className="contact-info-change d-flex justify-content-between align-items-end">
+                    <p className='mb-0'>Some text</p>
                     <div className="edit-pencil-contact">
                       <ImPencil />
                     </div>
