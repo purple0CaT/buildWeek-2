@@ -20,6 +20,8 @@ const Home = () => {
           <About />
           <Activity />
           <Footer />
+          {/* PASS THE ID IN clickId */}
+          <MainContainer clickId={null}/>
         </Col>
         <Col sm={0} md={3}>
           <Aside />

@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { ImPencil } from "react-icons/im";
 import "../css/maincontainer.css";
 import EditInfo from "./EditInfo";
+require("dotenv").config();
 
-export default function MainContainer() {
-  const url = "https://striveschool-api.herokuapp.com/api/profile/me";
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA";
+export default function MainContainer({ clickId }) {
+  const url = clickId
+    ? "https://striveschool-api.herokuapp.com/api/profile/" + clickId
+    : "https://striveschool-api.herokuapp.com/api/profile/me";
+  const token = process.env.REACT_APP_TOKENACCESS;
 
   const personId = "";
   const [PersonInfo, setPersonInfo] = useState([]);
@@ -16,8 +18,10 @@ export default function MainContainer() {
   //   UPDATE INFO
   useEffect(() => {
     fetchPerson();
-    console.log(process.env.REACT_APP_TOKENACCESS);
   }, []);
+  useEffect(() => {
+    fetchPerson();
+  }, [clickId]);
   //   !
   //   FETCHING
   const fetchPerson = async () => {
@@ -25,8 +29,7 @@ export default function MainContainer() {
       let response = await fetch(url, {
         method: "GET",
         headers: {
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA",
+          Authorization: "Bearer " + token,
         },
       });
       if (response.ok) {
