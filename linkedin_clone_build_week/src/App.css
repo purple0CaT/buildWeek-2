@@ -100,3 +100,130 @@ div.text-left button {
 .icon {
   text-align: end;
 }
+
+/* NAVBAR EMANUELE CSS */
+
+#linkedIn-navbar {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9;
+}
+
+
+.Left-ico-search {
+  display: flex;
+  align-items: baseline;
+  padding-right: 3px;
+  margin-top: 5px;
+  margin-right: 35px;
+}
+
+#nav23 {
+  padding: 0px;
+}
+
+div.col-1 {
+  font-size: 13px;
+  color: rgb(122, 119, 119);
+}
+
+.NavIco.row {
+  font-size: 28px;
+  color: rgb(112, 112, 112);
+  justify-content: center;
+}
+#NavIcon {
+  font-size: 20px;
+  color: rgb(112, 112, 112);
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
+  padding-left: 8px;
+  border-right: none;
+  background-color: rgb(232, 245, 253);
+}
+.navName.row {
+  justify-content: center;
+}
+
+.navName.row:hover {
+  justify-content: center;
+  border-bottom: solid rgb(48, 18, 218) 2px;
+}
+
+a.nav-link {
+  padding: 0%;
+  color: rgb(112, 112, 112);
+}
+
+a.nav-link:hover {
+  padding: 0%;
+  color: rgb(48, 18, 218);
+}
+
+#navnMe {
+  padding-left: 28px;
+}
+
+#searchBar {
+  border: none;
+  background-color: rgb(232, 245, 253);
+  border-radius: 5px;
+}
+
+#miniat {
+  height: 30px;
+}
+
+#meForm {
+  width: 300px;
+  color: rgb(75, 75, 52);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+#dropMe {
+  font-size: 14px;
+  padding: 3px;
+  color: rgb(131, 127, 127);
+  padding-left: 25px;
+}
+#button-myPage {
+  padding: 0px;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: bolder;
+  display: flex;
+  width: 100%;
+  display: flex;
+  padding: 2px;
+  border-radius: 15px;
+  justify-content: center;
+}
+
+.multy-Icons {
+  margin-left: 19px;
+  margin-right: 19px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+  color: rgb(101, 101, 102);
+}
+
+#spaceMe {
+  font-size: 30px;
+  color: black;
+  font-weight: bold;
+  padding-left:  7px;
+}
+
+#dropMe2 {
+  font-size: 14px;
+  padding: 3px;
+  color: rgb(131, 127, 127);
+}
