@@ -42,7 +42,7 @@ a {
   right: 2rem;
 }
 .name-box {
-    padding: 3.5rem 1.5rem!important;
+    padding: 3.5rem 1.5rem 1.5rem 1.5rem !important;
 }
 .contact-info{
     color: #2F7DCB;
