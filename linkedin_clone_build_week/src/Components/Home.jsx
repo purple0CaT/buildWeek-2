@@ -3,13 +3,17 @@ import LinkedinNavbar from "./Navbar";
 import Aside from "./Aside";
 import Footer from "./Footer";
 import SideFooter from "./SideFooter";
+import MainContainer from "./MainContainer";
 const Home = () => {
   return (
     <Container>
       <LinkedinNavbar/>
       <Row>
         <Col sm={12} md={9}>
-          <h1>MainContainer</h1>
+          <br />
+          <br />
+          <br />
+          <MainContainer />
           <Footer />
         </Col>
         <Col sm={0} md={3}>
@@ -23,4 +27,3 @@ const Home = () => {
 
 export default Home;
 
-import MainContainer from "./MainContainer";
