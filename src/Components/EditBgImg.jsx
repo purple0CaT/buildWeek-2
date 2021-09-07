@@ -61,8 +61,13 @@ export default function EditBgImg({
   };
   return (
     <>
-      <ImPencil size="1rem" onClick={handleShow} />
-
+      {" "}
+      <div
+        className="edit-cover d-flex align-items-center justify-content-center"
+        onClick={handleShow}
+      >
+        <ImPencil size="1rem" />
+      </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Modal heading</Modal.Title>
@@ -82,7 +87,7 @@ export default function EditBgImg({
           </Modal.Body>
           <Modal.Footer>
             <Button variant="primary" type="submit">
-              Save Changes
+              Save
             </Button>
           </Modal.Footer>
         </Form>

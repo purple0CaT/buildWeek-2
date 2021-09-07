@@ -58,7 +58,6 @@ function MainContainer({ match }) {
                 src="https://media-exp1.licdn.com/dms/image/C4E16AQEsq53uWSPplg/profile-displaybackgroundimage-shrink_350_1400/0/1629185220320?e=1636588800&v=beta&t=brJaUskUvjk3_S4toz1F95-TPuzMELixFB8b4R9hsyo"
                 alt=""
               />
-              <div className="edit-cover d-flex align-items-center justify-content-center">
                 <EditBgImg
                   personId={PersonInfo.data._id}
                   imgSrc={PersonInfo.data.image}
@@ -71,7 +70,6 @@ function MainContainer({ match }) {
                   emailSrc={PersonInfo.data.email}
                   renewData={() => fetchPerson()}
                 />
-              </div>
               {/* AVATAR */}
               <img className="avatar" src={PersonInfo.data.image} alt="" />
             </Col>
@@ -111,7 +109,7 @@ function MainContainer({ match }) {
               {/* RIGHT SIDE */}
               <Col xs="4" className="d-flex flex-column p-4">
                 {" "}
-                <div className="d-flex justify-content-end">
+                <div className="d-flex justify-content-end my-2">
                   <EditInfo
                     personId={PersonInfo.data._id}
                     name={PersonInfo.data.name}
