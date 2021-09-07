@@ -8,11 +8,11 @@ const [userExperience, setExperience]= useState([])
 const token = process.env.REACT_APP_TOKENACCESS;
 
 useEffect(() => {
-  fetch();
+  fetchExp();
   console.log("Mounted", userExperience )
 }, []);
 
-const fetch = async () => {
+const fetchExp = async () => {
   try {
     let response = await fetch(
         "https://striveschool-api.herokuapp.com/api/profile/5fc4af0bb708c200175de88e/experiences"         
@@ -29,7 +29,7 @@ const fetch = async () => {
       console.log("THIS IS EXPERIENCE", data )
       // let newData = await data[0]
       // console.log("NEW DATA", newData)
-      setExperience({data})
+      setExperience(data)
       
     } else {
       console.log("Error");
@@ -40,12 +40,25 @@ const fetch = async () => {
     return (
       <>
       <div className="experience-container mt-3">
+        <div className="text-left ml-4 mr-4 mt-4 mb-3">
+        <h5>Experience</h5>
+        {
+          userExperience.map((exp) => (
+
         <div className="text-left ml-4 mr-4 mt-4">
-        <h3> { userExperience.role } </h3>
-        <div> {userExperience.company}</div>
-        <div> {userExperience.startDate } - {userExperience.endDate} </div>
-        <div>{userExperience.area} </div>
-        <div>{userExperience.description} </div>
+        <h6> { exp.role } </h6>
+        <div> {exp.company}</div>
+        <div className="lighter-color"> {exp.startDate } - {exp.endDate} </div>
+        <div className="lighter-color">{exp.area} </div>
+          <div>
+            <ul>
+            <li>{exp.description}</li>
+            </ul> 
+           </div>
+        </div>
+
+          ))
+        }
         </div>
       </div>
       </>

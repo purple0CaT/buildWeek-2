@@ -5,7 +5,7 @@ import { Row, Col } from "react-bootstrap";
 class Dashboard extends Component {
   render() {
     return (
-      <div className="dash-container">
+      <div className="dash-container mt-3">
         <div className="text-left ml-4 mr-4 mt-4">
           <p>
             <h5>Your Dashboard</h5>
