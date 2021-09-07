@@ -1,4 +1,4 @@
-.modal-dialog {
+.modalEditInfo .modal-dialog{
   margin: 2.5rem auto !important;
   max-width: 50% !important;
   max-height: 92vh !important;
@@ -7,7 +7,7 @@
   overflow: hidden;
   border: unset !important;
 }
-.modal-content {
+.modalEditInfo .modal-content {
   border: unset !important;
   overflow-y: scroll !important;
   height: 92vh;

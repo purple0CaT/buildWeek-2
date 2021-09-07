@@ -9,7 +9,8 @@ function App() {
       <Router>
         <Container>
           <Route path="/" exact component={Home} />
-          <Route path="/home/:id" exact component={Home} />
+          <Route path="/home/" exact component={Home} />
+          <Route path="/home/:id" component={Home} />
         </Container>
       </Router>
     </div>

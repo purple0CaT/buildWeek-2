@@ -5,6 +5,7 @@ import { ImPencil } from "react-icons/im";
 import "../css/maincontainer.css";
 import EditInfo from "./EditInfo";
 import { Link, withRouter } from "react-router-dom";
+import EditBgImg from "./EditBgImg";
 require("dotenv").config();
 
 function MainContainer({ match }) {
@@ -53,19 +54,27 @@ function MainContainer({ match }) {
           <Row>
             {/* BG IMAGE */}
             <Col xs="12" className="bg-image">
-              <img src={PersonInfo.data.image} alt="" />
-              <div className="edit-cover d-flex align-items-center justify-content-center">
-                <ImPencil size="1rem" />
-              </div>
-            </Col>
-            {/* AVATAR */}
-            <div>
               <img
-                className="avatar"
                 src="https://media-exp1.licdn.com/dms/image/C4E16AQEsq53uWSPplg/profile-displaybackgroundimage-shrink_350_1400/0/1629185220320?e=1636588800&v=beta&t=brJaUskUvjk3_S4toz1F95-TPuzMELixFB8b4R9hsyo"
                 alt=""
               />
-            </div>
+              <div className="edit-cover d-flex align-items-center justify-content-center">
+                <EditBgImg
+                  personId={PersonInfo.data._id}
+                  imgSrc={PersonInfo.data.image}
+                  nameSrc={PersonInfo.data.name}
+                  surnameSrc={PersonInfo.data.surname}
+                  areaSrc={PersonInfo.data.area}
+                  bioSrc={PersonInfo.data.bio}
+                  usernameSrc={PersonInfo.data.username}
+                  titleSrc={PersonInfo.data.title}
+                  emailSrc={PersonInfo.data.email}
+                  renewData={() => fetchPerson()}
+                />
+              </div>
+              {/* AVATAR */}
+              <img className="avatar" src={PersonInfo.data.image} alt="" />
+            </Col>
             <Col xs="12 d-flex">
               {/* LEFT SIDE */}
               <Col xs="8 d-flex flex-column align-items-start name-box">
@@ -109,6 +118,11 @@ function MainContainer({ match }) {
                     surname={PersonInfo.data.surname}
                     area={PersonInfo.data.area}
                     title={PersonInfo.data.title}
+                    imgSrc={PersonInfo.data.image}
+                    bio={PersonInfo.data.bio}
+                    username={PersonInfo.data.username}
+                    email={PersonInfo.data.email}
+                    renewData={fetchPerson}
                   />
                 </div>
                 <a href="" className="d-flex align-items-center">

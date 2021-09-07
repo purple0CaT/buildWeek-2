@@ -24,10 +24,10 @@ a {
 .avatar {
   position: absolute;
   height: 10rem;
-  width: 10rem;
+  width: 10rem !important;
   object-fit: cover;
-  top: 20%;
-  left: 4%;
+  top: 40%;
+  left: 5%;
   border-radius: 50%;
   border: 5px solid white;
 }

@@ -6,41 +6,53 @@ import { AiFillEye } from "react-icons/ai";
 
 import "../css/editModal.css";
 
-export default function EditInfo({ name, surname, title, area, personId }) {
+export default function EditInfo({
+  name,
+  surname,
+  title,
+  area,
+  personId,
+  imgSrc,
+  bio,
+  username,
+  email,
+  renewData,
+}) {
   // CONSTANT
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [FormerName, setFormerName] = useState();
+  const token = process.env.REACT_APP_TOKENACCESS;
+
   //   REFRESH
   useEffect(() => {
     fetchCountries();
   }, []);
-  //   URL
-  const url = "https://striveschool-api.herokuapp.com/api/profile/me";
   //   COUNTRIES
   const [Countries, setCountries] = useState({});
   //   EDITING INFO
   const [EditingInfo, setEditingInfo] = useState({
     name: name,
     surname: surname,
-    email: "",
-    bio: "",
+    email: email,
+    bio: bio,
     title: title,
     area: area,
-    username: "",
+    username: username,
+    image: imgSrc,
   });
   // Data set
   const dataSet = (valname, valdata) => {
     setEditingInfo({ ...EditingInfo, [valname]: valdata });
   };
   // DATA SEND
-  const sendData = () => {
+  const sendData = (e) => {
+    e.preventDefault();
     postData();
     handleClose();
   };
   //   FETCHING COUNTRIES
-
   const fetchCountries = async () => {
     try {
       let response = await fetch("https://restcountries.eu/rest/v2/all");
@@ -55,20 +67,22 @@ export default function EditInfo({ name, surname, title, area, personId }) {
     }
   };
   //   POSTING DATA
+  //   URL
+  const url = "https://striveschool-api.herokuapp.com/api/profile/";
+
   const postData = async () => {
     try {
-      let response = await fetch(url + personId, {
+      let response = await fetch(url, {
         method: "PUT",
         body: JSON.stringify(EditingInfo),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
-          Authorization:
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA",
+          Authorization: "Bearer " + token,
         },
       });
       if (response.ok) {
         let data = await response.json();
-        setEditingInfo({ data });
+        renewData();
       } else {
         console.log("Error");
       }
@@ -76,6 +90,7 @@ export default function EditInfo({ name, surname, title, area, personId }) {
       console.log(err);
     }
   };
+  // JSX !
   return (
     <>
       <ImPencil
@@ -85,11 +100,11 @@ export default function EditInfo({ name, surname, title, area, personId }) {
         style={{ cursor: "pointer" }}
       />
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal className="modalEditInfo" show={show} onHide={handleClose}>
         <Modal.Header className="font-weight-light" closeButton>
           <Modal.Title className="font-weight-light">Edit intro</Modal.Title>
         </Modal.Header>
-        <Form onSubmit={sendData}>
+        <Form onSubmit={(e) => sendData(e)}>
           <Modal.Body className="p-4">
             <Row>
               <Col xs="6">
