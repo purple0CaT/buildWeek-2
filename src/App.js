@@ -11,8 +11,8 @@ function App() {
       <Router>
         <Container>
           <LinkedinNavbar />
-          <Route path="/" component={Home} />
-          <Route path="/home/:id" component={Home} />
+          <Route path="/" exact component={Home} />
+          <Route path="/home/:id" exact component={Home} />
           <Footer />
         </Container>
       </Router>
