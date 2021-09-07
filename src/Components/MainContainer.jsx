@@ -124,9 +124,9 @@ function MainContainer({ match }) {
                 </div>
                 <a href="" className="d-flex align-items-center">
                   <img
+                    style={{height:"2rem"}}
                     src="https://media-exp1.licdn.com/dms/image/C4D0BAQFFQIjyDsOK0w/company-logo_100_100/0/1593351903670?e=1639008000&v=beta&t=38emh8r8X3fw7Ah3ky91KyaVJT_6wSkxl1MqF2QRf5E"
                     alt=""
-                    style={{ height: "2rem" }}
                   />
                   <small className="font-weight-bold ml-2">Strive School</small>
                 </a>
@@ -140,5 +140,3 @@ function MainContainer({ match }) {
 }
 
 export default withRouter(MainContainer);
-
-                    style={{ height: "2rem" }}
