@@ -71,7 +71,7 @@ export default function EditBgImg({
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Edit image</Modal.Title>
         </Modal.Header>
         <Form onSubmit={(e) => sendData(e)}>
           <Modal.Body>

@@ -16,6 +16,7 @@ export default function EditSecondModal({ onPrevClick, email }) {
     <>
       <Modal.Header className="font-weight-light" closeButton>
         <Modal.Title
+        style={{cursor: 'pointer'}}
           className="font-weight-light"
           onClick={() => onPrevClick()}
         >
