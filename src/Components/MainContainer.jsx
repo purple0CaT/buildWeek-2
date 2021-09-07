@@ -73,9 +73,9 @@ function MainContainer({ match }) {
               {/* AVATAR */}
               <img className="avatar" src={PersonInfo.data.image} alt="" />
             </Col>
-            <Col xs="12 d-flex">
+            <Col xs="12 d-flex flex-wrap">
               {/* LEFT SIDE */}
-              <Col xs="8 d-flex flex-column align-items-start name-box">
+              <Col xs="12" md='8' className='d-flex flex-column align-items-start name-box'>
                 {" "}
                 <h2>
                   {PersonInfo.data.name} {PersonInfo.data.surname}{" "}
@@ -107,7 +107,7 @@ function MainContainer({ match }) {
                 </div>
               </Col>
               {/* RIGHT SIDE */}
-              <Col xs="4" className="d-flex flex-column p-4">
+              <Col xs="12" md='4' className="d-flex flex-column p-4">
                 {" "}
                 <div className="d-flex justify-content-end my-2">
                   <EditInfo
