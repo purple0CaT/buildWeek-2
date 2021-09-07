@@ -12,6 +12,11 @@
   box-shadow: 0 0 5px black !important;
   border-radius: 10px !important;
 }
+.modal-header,
+.modal-footer {
+  padding-top: 5px !important;
+  padding-bottom: 5px !important;
+}
 .modalEditInfo .modal-content {
   position: relative !important;
   border: unset !important;
