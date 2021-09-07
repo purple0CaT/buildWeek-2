@@ -3,11 +3,6 @@
   background-color: #f3f2ef;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-}
-
 footer ul li {
   list-style: none;
   text-align: start;
@@ -18,6 +13,7 @@ footer ul li {
 }
 .aside-card {
   padding: 12px;
+  width: 300px;
 }
 .big-font {
   font-size: 14px;
@@ -70,6 +66,10 @@ footer ul li {
 }
 
 #viewed,
+#may-know {
+  width: 300px;
+}
+#viewed,
 #may-know,
 #learning {
   margin: 24px 0px 0px;
@@ -111,7 +111,6 @@ div.text-left button {
   left: 0;
   z-index: 9;
 }
-
 
 .Left-ico-search {
   display: flex;
@@ -219,11 +218,14 @@ a.nav-link:hover {
   font-size: 30px;
   color: black;
   font-weight: bold;
-  padding-left:  7px;
+  padding-left: 7px;
 }
 
 #dropMe2 {
   font-size: 14px;
   padding: 3px;
   color: rgb(131, 127, 127);
+}
+.aside-row {
+  margin-top: 70px;
 }

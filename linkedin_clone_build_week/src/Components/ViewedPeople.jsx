@@ -1,6 +1,10 @@
-import { Row, Col, Card, Button } from "react-bootstrap";
-const ViewedPeople = ({ message }) => {
+import { Card } from "react-bootstrap";
+
+const ViewedPeople = ({ message, data }) => {
   const num = [1, 2, 3, 4, 5];
+  const startingIndex = message === "Message" ? 0 : 6;
+  const endingIndex = message === "Message" ? 5 : 11;
+  console.log(data.data);
   const listgenerate = () => {
     return (
       <li className="d-flex mt-3">
@@ -12,9 +16,7 @@ const ViewedPeople = ({ message }) => {
         </div>
         <div className="card-person ml-3">
           <Card.Title>Iqboljon Zokiorv</Card.Title>
-          <Card.Subtitle className="text-left">
-            Senior Major Incident Manager at Capgemini
-          </Card.Subtitle>
+          <Card.Subtitle className="text-left"></Card.Subtitle>
           <div className="text-left p-0 mt-1">
             <button>{message}</button>
           </div>
@@ -22,7 +24,29 @@ const ViewedPeople = ({ message }) => {
       </li>
     );
   };
-  return <ul className="people">{num.map((n) => listgenerate("Message"))}</ul>;
+  return (
+    <ul className="people">
+      {data &&
+        data.data.slice(0, 5).map((person) => (
+          <li className="d-flex mt-3">
+            <div className="card-imgs">
+              <Card.Img src={person.image} alt="user" />
+            </div>
+            <div className="card-person ml-3">
+              <Card.Title>
+                {person.name} {person.surname}
+              </Card.Title>
+              <Card.Subtitle className="text-left">
+                {person.title}
+              </Card.Subtitle>
+              <div className="text-left p-0 mt-1">
+                <button>{message}</button>
+              </div>
+            </div>
+          </li>
+        ))}
+    </ul>
+  );
 };
 
 export default ViewedPeople;

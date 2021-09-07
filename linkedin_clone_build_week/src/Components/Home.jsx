@@ -20,14 +20,12 @@ const Home = () => {
           <Dashboard />
           <About />
           <Activity />
-          <Footer />
         </Col>
         <Col sm={0} md={3}>
           <Aside />
-          <SideFooter />
-          Develop
         </Col>
       </Row>
+      <Footer />
     </Container>
   );
 };
