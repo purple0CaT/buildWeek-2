@@ -58,18 +58,18 @@ function MainContainer({ match }) {
                 src="https://media-exp1.licdn.com/dms/image/C4E16AQEsq53uWSPplg/profile-displaybackgroundimage-shrink_350_1400/0/1629185220320?e=1636588800&v=beta&t=brJaUskUvjk3_S4toz1F95-TPuzMELixFB8b4R9hsyo"
                 alt=""
               />
-                <EditBgImg
-                  personId={PersonInfo.data._id}
-                  imgSrc={PersonInfo.data.image}
-                  nameSrc={PersonInfo.data.name}
-                  surnameSrc={PersonInfo.data.surname}
-                  areaSrc={PersonInfo.data.area}
-                  bioSrc={PersonInfo.data.bio}
-                  usernameSrc={PersonInfo.data.username}
-                  titleSrc={PersonInfo.data.title}
-                  emailSrc={PersonInfo.data.email}
-                  renewData={() => fetchPerson()}
-                />
+              <EditBgImg
+                personId={PersonInfo.data._id}
+                imgSrc={PersonInfo.data.image}
+                nameSrc={PersonInfo.data.name}
+                surnameSrc={PersonInfo.data.surname}
+                areaSrc={PersonInfo.data.area}
+                bioSrc={PersonInfo.data.bio}
+                usernameSrc={PersonInfo.data.username}
+                titleSrc={PersonInfo.data.title}
+                emailSrc={PersonInfo.data.email}
+                renewData={() => fetchPerson()}
+              />
               {/* AVATAR */}
               <img className="avatar" src={PersonInfo.data.image} alt="" />
             </Col>

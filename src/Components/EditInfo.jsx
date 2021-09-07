@@ -93,13 +93,15 @@ export default function EditInfo({
   // JSX !
   return (
     <>
-      <ImPencil
-        size="1.2rem"
-        className="text-muted"
-        onClick={handleShow}
-        style={{ cursor: "pointer" }}
-      />
-
+      {" "}
+      <div className=" d-flex justify-content-center align-items-center edit-info-pencil">
+        <ImPencil
+          size="1.2rem"
+          className="text-muted"
+          onClick={handleShow}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
       <Modal className="modalEditInfo" show={show} onHide={handleClose}>
         <Modal.Header className="font-weight-light" closeButton>
           <Modal.Title className="font-weight-light">Edit intro</Modal.Title>
