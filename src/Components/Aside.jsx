@@ -4,6 +4,7 @@ import Learning from "./Learning";
 import ViewedPeople from "./ViewedPeople";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 const Aside = () => {
   const [users, getUsers] = useState([]);
   const token = process.env.REACT_APP_TOKENACCESS;
@@ -103,4 +104,4 @@ const Aside = () => {
   );
 };
 
-export default Aside;
+export default withRouter(Aside);

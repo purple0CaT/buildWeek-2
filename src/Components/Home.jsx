@@ -10,23 +10,19 @@ import Activity from "./Activity";
 
 const Home = () => {
   return (
-    <Container>
-      <LinkedinNavbar />
-      <Row>
-        <Col sm={12} md={9}>
-          <br />
-          {/* PASS THE ID IN clickId */}
-          <MainContainer clickId={null} />
-          <Dashboard />
-          <About />
-          <Activity />
-        </Col>
-        <Col sm={0} md={3}>
-          <Aside />
-        </Col>
-      </Row>
-      <Footer />
-    </Container>
+    <Row>
+      <Col sm={12} md={9}>
+        <br />
+        {/* PASS THE ID IN clickId */}
+        <MainContainer clickId={null} />
+        <Dashboard />
+        <About />
+        <Activity />
+      </Col>
+      <Col sm={0} md={3}>
+        <Aside />
+      </Col>
+    </Row>
   );
 };
 

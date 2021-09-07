@@ -4,12 +4,10 @@ import { useState, useEffect } from "react";
 import { ImPencil } from "react-icons/im";
 import "../css/maincontainer.css";
 import EditInfo from "./EditInfo";
+import { Link, withRouter } from "react-router-dom";
 require("dotenv").config();
 
-export default function MainContainer({ clickId }) {
-  const url = clickId
-    ? "https://striveschool-api.herokuapp.com/api/profile/" + clickId
-    : "https://striveschool-api.herokuapp.com/api/profile/me";
+function MainContainer({ match }) {
   const token = process.env.REACT_APP_TOKENACCESS;
 
   const personId = "";
@@ -21,17 +19,23 @@ export default function MainContainer({ clickId }) {
   }, []);
   useEffect(() => {
     fetchPerson();
-  }, [clickId]);
+  }, [match.params]);
   //   !
   //   FETCHING
   const fetchPerson = async () => {
     try {
-      let response = await fetch(url, {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
+      let response = await fetch(
+        match.params.id
+          ? "https://striveschool-api.herokuapp.com/api/profile/" +
+              match.params.id
+          : "https://striveschool-api.herokuapp.com/api/profile/me",
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
       if (response.ok) {
         let data = await response.json();
         setPersonInfo({ data });
@@ -123,3 +127,5 @@ export default function MainContainer({ clickId }) {
     </>
   );
 }
+
+export default withRouter(MainContainer);

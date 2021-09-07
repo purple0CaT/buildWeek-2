@@ -1,4 +1,5 @@
 import { Card } from "react-bootstrap";
+import { Link, withRouter } from "react-router-dom";
 
 const ViewedPeople = ({ message, data }) => {
   const num = [1, 2, 3, 4, 5];
@@ -29,24 +30,26 @@ const ViewedPeople = ({ message, data }) => {
       {data.data &&
         data.data.slice(0, 5).map((person) => (
           <li className="d-flex mt-3">
-            <div className="card-imgs">
-              <Card.Img src={person.image} alt="user" />
-            </div>
-            <div className="card-person ml-3">
-              <Card.Title>
-                {person.name} {person.surname}
-              </Card.Title>
-              <Card.Subtitle className="text-left">
-                {person.title}
-              </Card.Subtitle>
-              <div className="text-left p-0 mt-1">
-                <button>{message}</button>
+            <Link to={"/home/" + person._id} className="d-flex mt-3">
+              <div className="card-imgs">
+                <Card.Img src={person.image} alt="user" />
               </div>
-            </div>
+              <div className="card-person ml-3">
+                <Card.Title>
+                  {person.name} {person.surname}
+                </Card.Title>
+                <Card.Subtitle className="text-left">
+                  {person.title}
+                </Card.Subtitle>
+                <div className="text-left p-0 mt-1">
+                  <button>{message}</button>
+                </div>
+              </div>
+            </Link>
           </li>
         ))}
     </ul>
   );
 };
 
-export default ViewedPeople;
+export default withRouter(ViewedPeople);
