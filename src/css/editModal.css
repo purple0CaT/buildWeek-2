@@ -4,10 +4,11 @@
   min-width: 40rem !important;
   max-height: 92vh !important;
   width: auto;
-  overflow: hidden;
   transition: 0.2s !important;
 }
 .modal-dialog {
+  border: unset !important;
+  overflow: hidden;
   box-shadow: 0 0 5px black !important;
   border-radius: 10px !important;
 }

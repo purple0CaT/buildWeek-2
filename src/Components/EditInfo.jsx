@@ -116,12 +116,7 @@ export default function EditInfo({
       </div>
       <Modal className="modalEditInfo" show={show} onHide={handleClose}>
         {/* CAROUSEL */}
-        <Carousel
-          indicators={false}
-          controls={false}
-          interval={9999999}
-          ref={ref}
-        >
+        <Carousel indicators={false} controls={false} interval={null} ref={ref}>
           <Carousel.Item>
             <Modal.Header className="font-weight-light" closeButton>
               <Modal.Title className="font-weight-light">
@@ -329,8 +324,11 @@ export default function EditInfo({
                       <Form.Label>Contact info</Form.Label>
                       <div className="contact-info-change d-flex justify-content-between align-items-end">
                         <p className="mb-0">Some text</p>
-                        <div className="edit-pencil-contact">
-                          <ImPencil onClick={() => onNextClick()} />
+                        <div
+                          className="edit-pencil-contact"
+                          onClick={() => onNextClick()}
+                        >
+                          <ImPencil />
                         </div>
                       </div>
                     </Form.Group>
@@ -347,7 +345,7 @@ export default function EditInfo({
           {/* !!! */}
           {/* SECOND MODILE EDITING */}
           <Carousel.Item>
-            <EditSecondModal onPrevClick={()=> onPrevClick()} email={email}/>
+            <EditSecondModal onPrevClick={() => onPrevClick()} email={email} />
           </Carousel.Item>
         </Carousel>
       </Modal>
