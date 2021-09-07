@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form, Carousel } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 
@@ -59,6 +59,7 @@ export default function EditBgImg({
       console.log(err);
     }
   };
+//   JSX
   return (
     <>
       {" "}
