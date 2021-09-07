@@ -7,8 +7,9 @@ import EditInfo from "./EditInfo";
 require("dotenv").config();
 
 export default function MainContainer({ clickId }) {
-  const url = clickId
-    ? "https://striveschool-api.herokuapp.com/api/profile/" + clickId
+  const [profileId, setprofileId] = useState(clickId);
+  let url = profileId
+    ? "https://striveschool-api.herokuapp.com/api/profile/" + profileId
     : "https://striveschool-api.herokuapp.com/api/profile/me";
   const token = process.env.REACT_APP_TOKENACCESS;
 
