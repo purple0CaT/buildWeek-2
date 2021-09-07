@@ -1,12 +1,15 @@
 .modalEditInfo .modal-dialog {
   margin: 2.5rem auto !important;
-  max-width: 50% !important;
+  max-width: 40% !important;
+  min-width: 40rem !important;
   max-height: 92vh !important;
   width: auto;
-  border-radius: 10px;
   overflow: hidden;
-  border: unset !important;
-  transition: 0.2s;
+  transition: 0.2s !important;
+}
+.modal-dialog {
+  box-shadow: 0 0 5px black !important;
+  border-radius: 10px !important;
 }
 .modalEditInfo .modal-content {
   position: relative !important;
@@ -14,7 +17,7 @@
   overflow-y: scroll !important;
   height: auto;
   max-height: 92vh !important;
-  transition: 0.2s;
+  transition: 0.2s !important;
   overflow: hidden;
 }
 .form-control:hover {
