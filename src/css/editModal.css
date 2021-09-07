@@ -90,3 +90,10 @@ form label {
   height: auto;
   max-height: 78vh;
 }
+@media screen and (max-width: 650px) {
+  .modalEditInfo .modal-dialog {
+    min-width: unset !important;
+    max-width: unset !important;
+    width: 90%;
+  }
+}
