@@ -12,9 +12,9 @@ import Experience from "./Experience";
 const Home = () => {
   return (
     <Container>
+          <br />
       <Row>
         <Col sm={12} md={9}>
-          <br />
           <br />
           <MainContainer/>
           <Dashboard />
