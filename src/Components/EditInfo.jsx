@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { RiArrowLeftLine } from "react-icons/ri";
 
 import "../css/editModal.css";
+import EditSecondModal from "./EditSecondModal";
 
 export default function EditInfo({
   name,
@@ -346,35 +347,7 @@ export default function EditInfo({
           {/* !!! */}
           {/* SECOND MODILE EDITING */}
           <Carousel.Item>
-            {" "}
-            <Modal.Header className="font-weight-light" closeButton>
-              <Modal.Title className="" onClick={() => onPrevClick()}>
-                <RiArrowLeftLine size="2rem" />
-                Edit contact info
-              </Modal.Title>
-            </Modal.Header>
-            <Form onSubmit={(e) => sendData(e)}>
-              <Modal.Body className="p-4">
-                <Row>
-                  <Col xs="6">
-                    <Form.Group controlId="formName">
-                      <Form.Label>First Name *</Form.Label>
-                      <Form.Control
-                        type="text"
-                        value={EditingInfo.name}
-                        onChange={(e) => dataSet("name", e.target.value)}
-                        placeholder="Enter name"
-                      />
-                    </Form.Group>
-                  </Col>
-                </Row>
-              </Modal.Body>
-              <Modal.Footer>
-                <Button variant="primary" type="submit">
-                  Apply
-                </Button>
-              </Modal.Footer>
-            </Form>
+            <EditSecondModal onPrevClick={()=> onPrevClick()} email={email}/>
           </Carousel.Item>
         </Carousel>
       </Modal>

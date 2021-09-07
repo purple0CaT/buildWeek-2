@@ -6,11 +6,16 @@
   border-radius: 10px;
   overflow: hidden;
   border: unset !important;
+  transition: 0.2s;
 }
 .modalEditInfo .modal-content {
+  position: relative !important;
   border: unset !important;
   overflow-y: scroll !important;
-  height: 92vh;
+  height: auto;
+  max-height: 92vh !important;
+  transition: 0.2s;
+  overflow: hidden;
 }
 .form-control:hover {
   box-shadow: unset !important;
@@ -69,4 +74,10 @@ form label {
 }
 .edit-info-pencil:hover {
   background-color: #e3f0fe;
+}
+
+.modal-body {
+  overflow: auto;
+  height: auto;
+  max-height: 78vh;
 }
