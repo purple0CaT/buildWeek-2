@@ -27,6 +27,7 @@ import { GrWaypoint } from "react-icons/gr";
 import { GiReceiveMoney } from "react-icons/gi";
 import { RiPhoneFindLine, RiAdvertisementFill } from "react-icons/ri";
 import pro from "./download.png";
+import { Link, withRouter } from "react-router-dom";
 
 const LinkedinNavbar = () => {
   return (
@@ -64,12 +65,12 @@ const LinkedinNavbar = () => {
           </Col>
           <Col xs={1}>
             <Row className="NavIco">
-              <Nav.Link>
+              <Link to="/">
                 <BsFillHouseDoorFill />
-              </Nav.Link>
+              </Link>
             </Row>
             <Row className="navName">
-              <Nav.Link> Home</Nav.Link>
+              <Link to="/">Home</Link>
             </Row>
           </Col>
 
