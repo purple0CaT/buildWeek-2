@@ -97,10 +97,12 @@ div.text-left button {
   padding: 6px 16px;
 }
 
-.icon {
-  text-align: end;
+.icon1 {
+  margin-left: 90px;
 }
-
+.icon2 {
+  margin-left: 42px;
+}
 /* NAVBAR EMANUELE CSS */
 
 #linkedIn-navbar {
@@ -170,7 +172,7 @@ a.nav-link:hover {
 }
 
 #searchBar {
-  border: none;
+  border: nond;
   background-color: rgb(232, 245, 253);
   border-radius: 5px;
 }
