@@ -26,7 +26,7 @@ const ViewedPeople = ({ message, data }) => {
   };
   return (
     <ul className="people">
-      {data &&
+      {data.data &&
         data.data.slice(0, 5).map((person) => (
           <li className="d-flex mt-3">
             <div className="card-imgs">
