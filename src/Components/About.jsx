@@ -31,7 +31,7 @@ import {Modal, Button, Form} from 'react-bootstrap'
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-      >
+        >
         <Modal.Header closeButton >
           <Modal.Title>Edit about</Modal.Title>
         </Modal.Header>

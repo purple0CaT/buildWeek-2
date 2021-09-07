@@ -5,7 +5,7 @@ const ViewedPeople = ({ message, data }) => {
   const num = [1, 2, 3, 4, 5];
   const startingIndex = message === "Message" ? 0 : 6;
   const endingIndex = message === "Message" ? 5 : 11;
-  console.log(data.data);
+ 
   const listgenerate = () => {
     return (
       <li className="d-flex mt-3">

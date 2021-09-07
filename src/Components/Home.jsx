@@ -7,6 +7,7 @@ import MainContainer from "./MainContainer";
 import About from "./About";
 import Dashboard from "./Dashboard";
 import Activity from "./Activity";
+import Experience from "./Experience";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <Dashboard />
         <About />
         <Activity />
+        <Experience/>
       </Col>
       <Col sm={0} md={3}>
         <Aside />
