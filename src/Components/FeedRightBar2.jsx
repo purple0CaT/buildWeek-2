@@ -10,7 +10,7 @@ import { GrClose } from "react-icons/gr";
 export default function FeedRightBar2() {
   const [InfoSecond, setInfoSecond] = useState();
   return (
-    <div className='position-relative'>
+    <div className="position-relative">
       <div className="sideCard py-1 d-flex flex-column mt-1">
         <div className="px-2 d-flex justify-content-between pt-2 align-items-baseline">
           <h6>Linkedln News</h6>
@@ -34,20 +34,20 @@ export default function FeedRightBar2() {
             <BsFillInfoSquareFill size="0.8rem" className="text-muted" />
           </div>
         </div>
-        <div className="px-3">
-          <Link to="/" className="sideCardPick p-1 d-flex">
+        <div>
+          <Link to="/" className="sideCardPick px-3 py-2 d-flex">
             <div className="flex-column d-flex">
               <small className="font-weight-bold m-0">1. Some news!</small>
               <small className="text-muted mx-2">2d ago 12,000 readers</small>
             </div>
           </Link>
-          <Link to="/" className="sideCardPick p-1 d-flex">
+          <Link to="/" className="sideCardPick px-3 py-2 d-flex">
             <div className="flex-column d-flex">
               <small className="font-weight-bold m-0">2. Some news!</small>
               <small className="text-muted mx-2">2d ago 12,000 readers</small>
             </div>
           </Link>
-          <Link to="/" className="sideCardPick p-1 d-flex">
+          <Link to="/" className="sideCardPick px-3 py-2 d-flex">
             <div className="flex-column d-flex">
               <small className="font-weight-bold m-0">3. Some news!</small>
               <small className="text-muted mx-2">2d ago 12,000 readers</small>
