@@ -1,14 +1,22 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import FeedLeftBar from "./FeedLeftBar";
+import FeedRightBar from "./FeedRightBar";
 
 function Feed() {
   return (
     <>
       <Container>
-        <Row style={{ marginTop: 100 }}>
-          <Col md="2">Side Bar</Col>
-          <Col md="7">Feedbacks</Col>
-          <Col md="3">Another Side Bar</Col>
+        <br />
+        <br />
+        <Row>
+          <Col md="3">
+            <FeedLeftBar />{" "}
+          </Col>
+          <Col md="6">Feedbacks</Col>
+          <Col md="4">
+            <FeedRightBar />{" "}
+          </Col>
         </Row>
       </Container>
     </>
