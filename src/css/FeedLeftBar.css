@@ -47,3 +47,34 @@
   cursor: pointer;
   background-color: #ebebeb;
 }
+.addGourpsEvents:hover {
+  text-decoration: none !important;
+  background-color: #ebebeb;
+  color: black;
+}
+.addGourpsEvents {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 50%;
+  color: gray;
+  transition: 0.2s;
+}
+.discoverMore {
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  width: 100%;
+}
+.discoverMore h6 {
+  color: gray;
+  text-decoration: none;
+}
+
+.discoverMore:hover h6 {
+  color: black !important;
+}
+.discoverMore:hover a {
+  text-decoration: none !important;
+}
+.discoverMore:hover {
+  background-color: #ebebeb;
+}

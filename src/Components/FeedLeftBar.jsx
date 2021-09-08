@@ -1,9 +1,11 @@
+import "../css/FeedLeftBar.css";
 import React from "react";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "../css/fetchPerson.css";
+import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { CgUserAdd } from "react-icons/cg";
 import { IoBookmarkSharp } from "react-icons/io5";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function FeedLeftBar() {
   const [MyProfile, setMyProfile] = useState();
@@ -25,7 +27,6 @@ export default function FeedLeftBar() {
       });
       if (response.ok) {
         let data = await response.json();
-        console.log(data);
         setMyProfile({ data });
       } else {
         console.log("Error");
@@ -86,16 +87,45 @@ export default function FeedLeftBar() {
             <div>
               {" "}
               <span className="font-weight-bold premiumForFree">
+                <img
+                  src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Gold_square.svg"
+                  style={{ width: "1rem", height: "1rem" }}
+                  alt=""
+                />{" "}
                 Try Premium for free
               </span>
             </div>
           </div>
           <div className="px-3 py-2 myItems">
-            <IoBookmarkSharp size='1rem' className="mr-2 text-muted" />
+            <IoBookmarkSharp size="1rem" className="mr-2 text-muted" />
             <span className="font-weight-bold">My items</span>
           </div>
         </div>
       )}
+      <div className="d-flex flex-wrap mt-2 feedPersonInfo">
+        <Col xs="10" className=" d-flex flex-column py-1">
+          <Link>
+            <small className=" font-weight-bold">Groups</small>
+          </Link>
+          <Link>
+            <small className=" font-weight-bold">Events</small>{" "}
+          </Link>
+          <Link>
+            {" "}
+            <small className=" font-weight-bold">Followed Hashtags</small>{" "}
+          </Link>
+        </Col>
+        <Col xs="2" className="d-flex align-items-center">
+          <Link to="/" className="addGourpsEvents">
+            <AiOutlinePlus size="1.2rem" />
+          </Link>
+        </Col>
+        <div className="discoverMore text-center px-2 pt-2">
+          <Link to="/" className="d-flex justify-content-center">
+            <h6 className="d-block">Discover more</h6>
+          </Link>
+        </div>
+      </div>
     </>
   );
 }
