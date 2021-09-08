@@ -298,3 +298,44 @@ a.nav-link:hover {
 .icons-wrapper div:hover {
   background-color: #f2f3ef;
 }
+#privacy-btn {
+  text-align: start;
+  background-color: #fff;
+  border: 1px solid #0000008c;
+  color: #00000099;
+  font-weight: bold;
+  border-radius: 20px;
+
+  margin: 0px 0px 4px;
+  font-size: 14px;
+}
+
+#input {
+  width: 100%;
+
+  border: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 80px;
+}
+#input:focus {
+  border: none;
+}
+#post-input::placeholder {
+  margin-bottom: 100px;
+}
+.hashtag {
+  border: none;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+div.icons-footer svg {
+  margin-right: 15px;
+}
+
+#modal-footer {
+  margin-left: 12px;
+  padding: 0;
+  justify-content: flex-start;
+}

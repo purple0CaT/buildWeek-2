@@ -74,7 +74,11 @@ function MainContainer({ match }) {
             </Col>
             <Col xs="12 d-flex flex-wrap">
               {/* LEFT SIDE */}
-              <Col xs="12" md='8' className='d-flex flex-column align-items-start name-box'>
+              <Col
+                xs="12"
+                md="8"
+                className="d-flex flex-column align-items-start name-box"
+              >
                 {" "}
                 <h2>
                   {PersonInfo.data.name} {PersonInfo.data.surname}{" "}
@@ -106,7 +110,7 @@ function MainContainer({ match }) {
                 </div>
               </Col>
               {/* RIGHT SIDE */}
-              <Col xs="12" md='4' className="d-flex flex-column p-4">
+              <Col xs="12" md="4" className="d-flex flex-column p-4">
                 {" "}
                 <div className="d-flex justify-content-end my-2">
                   <EditInfo
@@ -124,7 +128,7 @@ function MainContainer({ match }) {
                 </div>
                 <a href="" className="d-flex align-items-center">
                   <img
-                    style={{height:"2rem"}}
+                    style={{ height: "2rem" }}
                     src="https://media-exp1.licdn.com/dms/image/C4D0BAQFFQIjyDsOK0w/company-logo_100_100/0/1593351903670?e=1639008000&v=beta&t=38emh8r8X3fw7Ah3ky91KyaVJT_6wSkxl1MqF2QRf5E"
                     alt=""
                   />

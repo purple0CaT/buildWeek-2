@@ -35,13 +35,16 @@ function Feed() {
     console.log(posts);
   }, []);
 
+  const onNewPost = (newPost) => {
+    getPosts(...posts, newPost);
+  };
   return (
     <>
       <Container>
         <Row style={{ marginTop: 100 }}>
           <Col md="2">Side Bar</Col>
           <Col md="6">
-            <PostFeed />
+            <PostFeed onNewPostFunction={onNewPost} />
             {posts
               .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
               .map(
