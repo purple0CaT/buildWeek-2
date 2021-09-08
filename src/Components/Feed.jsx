@@ -14,7 +14,7 @@ function Feed() {
             <FeedLeftBar />{" "}
           </Col>
           <Col md="6">Feedbacks</Col>
-          <Col md="4">
+          <Col md="3">
             <FeedRightBar />{" "}
           </Col>
         </Row>
