@@ -107,7 +107,7 @@ div.text-left button {
 
 #linkedIn-navbar {
   background-color: rgb(255, 255, 255);
-  position: fixed;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;

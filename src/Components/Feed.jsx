@@ -39,8 +39,9 @@ function Feed() {
 
   return (
     <>
+      <br />
       <Container>
-        <Row style={{ marginTop: 100 }}>
+        <Row>
           <Col md="3">
             <FeedLeftBar />
           </Col>
