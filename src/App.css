@@ -258,3 +258,84 @@ a.nav-link:hover {
 .footer-icons div span {
   font-size: 14px;
 }
+
+.profile-img img {
+  width: 60px;
+}
+
+.wrapper {
+  max-width: 100%;
+}
+
+#post-card .card-body {
+  margin-left: -10px;
+}
+
+.post-btn #modal-btn {
+  width: calc(100% - 10px);
+  text-align: start;
+  background-color: #fff;
+  border: 1px solid #0000008c;
+  color: #00000099;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 10px 8px 10px 16px;
+  margin: 4px 0px;
+  font-size: 14px;
+}
+
+.post-btn #modal-btn:hover {
+  background-color: #f2f3ef;
+}
+.icons-wrapper {
+  max-width: 100%;
+  justify-content: space-around;
+  padding: 10px 0px 4px;
+}
+.icons-wrapper div {
+  padding: 0px 8px;
+}
+.icons-wrapper div:hover {
+  background-color: #f2f3ef;
+}
+#privacy-btn {
+  text-align: start;
+  background-color: #fff;
+  border: 1px solid #0000008c;
+  color: #00000099;
+  font-weight: bold;
+  border-radius: 20px;
+
+  margin: 0px 0px 4px;
+  font-size: 14px;
+}
+
+#input {
+  width: 100%;
+
+  border: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 80px;
+}
+#input:focus {
+  border: none;
+}
+#post-input::placeholder {
+  margin-bottom: 100px;
+}
+.hashtag {
+  border: none;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+div.icons-footer svg {
+  margin-right: 15px;
+}
+
+#modal-footer {
+  margin-left: 12px;
+  padding: 0;
+  justify-content: flex-start;
+}

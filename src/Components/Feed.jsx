@@ -2,8 +2,10 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SingleFeed from "./SingleFeed";
 import { useState, useEffect } from "react";
+import PostFeed from "./Post";
 import FeedLeftBar from "./FeedLeftBar";
 import FeedRightBar from "./FeedRightBar";
+
 
 function Feed() {
   const [posts, getPosts] = useState([]);
@@ -37,6 +39,9 @@ function Feed() {
     console.log(posts);
   }, []);
 
+  const onNewPost = (newPost) => {
+    getPosts(...posts, newPost);
+  };
   return (
     <>
       <br />
@@ -46,6 +51,7 @@ function Feed() {
             <FeedLeftBar />
           </Col>
           <Col md="6">
+            <PostFeed onNewPostFunction={onNewPost} />
             {posts
               .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
               .map(
