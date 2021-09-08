@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {Link, withRouter} from 'react-router-dom'
+import { format, parseISO } from "date-fns"
 import "../experience.css"
 
  const Experience = () => {
@@ -48,7 +49,7 @@ const fetchExp = async () => {
         <div className="text-left ml-4 mr-4 mt-4">
         <h6> { exp.role } </h6>
         <div> {exp.company}</div>
-        <div className="lighter-color"> {exp.startDate } - {exp.endDate} </div>
+        {/* <div className="lighter-color">{${format(parseISO(exp.startDate), MMM-yyyy)} - ${format(parseISO(exp.endDate),MMM-yyyy)}}</div> */}
         <div className="lighter-color">{exp.area} </div>
           <div>
             <ul>
