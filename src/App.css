@@ -107,7 +107,7 @@ div.text-left button {
 
 #linkedIn-navbar {
   background-color: rgb(255, 255, 255);
-  position: fixed;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
@@ -230,4 +230,31 @@ a.nav-link:hover {
 }
 .aside-row {
   margin-top: 70px;
+}
+
+.user-img img {
+  width: 50px;
+}
+
+.feed .user-info h4 {
+  font-size: 14px;
+  color: #000000e6;
+}
+.feed .user-info p {
+  font-size: 12px;
+  color: #00000099;
+}
+.footer-icons {
+  margin-left: -30px;
+}
+.footer-icons div {
+  padding: 10px 8px;
+}
+
+.footer-icons div:hover {
+  background-color: #f2f3ef;
+}
+
+.footer-icons div span {
+  font-size: 14px;
 }
