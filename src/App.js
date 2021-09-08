@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Feed from "./Components/Feed";
 import Home from "./Components/Home";
 import LinkedinNavbar from "./Components/Navbar";
+import Footer from "./Components/Footer";
 
 function App() {
   return (
@@ -17,10 +18,16 @@ function App() {
           <Route path="/feed" exact component={Feed} />
           <Route
             render={() => (
-              <h1 className="text-danger text-center pt-5">404 - NOT FOUND</h1>
+              <>
+                <br />
+                <h1 className="text-danger text-center m-5 p-5">
+                  404 - NOT FOUND
+                </h1>
+              </>
             )}
           />
         </Switch>
+        <Footer />
       </Router>
     </>
   );
