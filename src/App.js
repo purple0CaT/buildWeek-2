@@ -7,16 +7,12 @@ import LinkedinNavbar from "./Components/Navbar";
 import { Container } from "react-bootstrap";
 function App() {
   return (
-    <div className="App">
       <Router>
-        <Container>
           <LinkedinNavbar />
           <Route path="/" exact component={Home} />
           <Route path="/home/:id" exact component={Home} />
           <Footer />
-        </Container>
       </Router>
-    </div>
   );
 }
 

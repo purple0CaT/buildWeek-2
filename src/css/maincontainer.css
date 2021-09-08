@@ -8,9 +8,8 @@ a {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  max-height: 28rem;
   border: 1px solid rgba(128, 128, 128, 0.281);
-  background-color: white;
+  background-color: white !important;
 }
 .bg-image {
   position: relative;
@@ -25,10 +24,10 @@ a {
 .avatar {
   position: absolute;
   height: 10rem;
-  width: 10rem;
+  width: 10rem !important;
   object-fit: cover;
-  top: 20%;
-  left: 4%;
+  bottom: -20%;
+  left: 5%;
   border-radius: 50%;
   border: 5px solid white;
 }
@@ -48,22 +47,32 @@ a {
   padding: 3.5rem 1.5rem 1.5rem 1.5rem !important;
 }
 .contact-info {
-  color: #2f7dcb !important;
+  color: #1163b4 !important;
   cursor: pointer;
 }
-
-@media screen and (max-width: 768px) {
+.btn {
+  border-radius: 20px !important;
+  padding: 0.2rem 0.8rem !important;
+  margin: 0.2rem 0.2rem;
+}
+ /* @media screen and (max-width: 380px) {
   .avatar {
     top: 5%;
   }
+  .person-info {
+    max-height: 30rem unset !important;
+  } */
+@media screen and (max-width: 450px) {
+  .avatar {
+left: 30%;
 }
+.name-box {
+  margin-top: 1.8rem !important;
+}
+} 
 @media screen and (max-width: 991px) {
   .avatar {
     top: 5%;
   }
 }
-.btn {
-  border-radius: 20px !important;
-  padding: 0.2rem 0.8rem !important;
-  margin: 0 0.2rem;
-}
+
