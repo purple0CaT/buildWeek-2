@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import SingleFeed from "./SingleFeed";
 import { useState, useEffect } from "react";
 import FeedLeftBar from "./FeedLeftBar";
+import FeedRightBar from "./FeedRightBar";
 
 function Feed() {
   const [posts, getPosts] = useState([]);
@@ -50,7 +51,9 @@ function Feed() {
                 (post) => post.user && <SingleFeed post={post} key={post._id} />
               )}
           </Col>
-          <Col md="3">Another Side Bar</Col>
+          <Col md="3">
+            <FeedRightBar />
+          </Col>
         </Row>
       </Container>
     </>
