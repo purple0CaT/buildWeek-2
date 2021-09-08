@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import SingleFeed from "./SingleFeed";
 import { useState, useEffect } from "react";
+import PostFeed from "./Post";
 function Feed() {
   const [posts, getPosts] = useState([]);
   const [checkSort, markSort] = useState(false);
@@ -40,6 +41,7 @@ function Feed() {
         <Row style={{ marginTop: 100 }}>
           <Col md="2">Side Bar</Col>
           <Col md="6">
+            <PostFeed />
             {posts
               .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
               .map(
