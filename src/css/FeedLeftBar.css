@@ -78,3 +78,8 @@
 .discoverMore:hover {
   background-color: #ebebeb;
 }
+
+.sticky {
+  position: sticky;
+  top: 2rem;
+}
