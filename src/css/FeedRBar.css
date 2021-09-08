@@ -48,6 +48,13 @@
   position: sticky;
   top: 2rem;
 }
+.promotedCard:hover p{
+  color: blue !important;
+}
+.promotedCard:hover small {
+  text-decoration: none !important;
+  color: black;
+}
 .promotedCard {
-    font-size: 0.8rem;
+  font-size: 0.8rem;
 }
