@@ -48,7 +48,7 @@
   position: sticky;
   top: 2rem;
 }
-.promotedCard:hover p{
+.promotedCard:hover p {
   color: blue !important;
 }
 .promotedCard:hover small {
@@ -57,4 +57,35 @@
 }
 .promotedCard {
   font-size: 0.8rem;
+}
+.infoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: 0.2s;
+}
+.infoIcon:hover {
+  background-color: #ebebeb !important;
+}
+
+.infoDialog {
+  position: absolute;
+  border-radius: 10px;
+  background-color: white !important;
+  right: 3rem;
+  top: -1rem;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 0.5rem;
+  width: 130% !important;
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
+}
+.infoDialogClose:hover {
+  cursor: pointer;
+  background-color: #ebebeb !important;
 }

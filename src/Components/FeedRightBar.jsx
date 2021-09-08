@@ -1,21 +1,42 @@
 import React from "react";
 import "../css/FeedRBar.css";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GoPrimitiveDot } from "react-icons/go";
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { useState } from "react";
+import { GrClose } from "react-icons/gr";
 import FeedRightBar2 from "./FeedRightBar2";
 import PromotFooter from "./PromotFooter";
 
 export default function FeedRightBar() {
   const [ShowMore, setShowMore] = useState(false);
+  const [InfoFirst, setInfoFirst] = useState(false);
   return (
     <>
       <div className="sideCard py-1 d-flex flex-column">
         <div className="px-2 d-flex justify-content-between pt-2 align-items-baseline">
           <h6>Linkedln News</h6>
-          <BsFillInfoSquareFill size="0.8rem" className="text-muted" />
+          {InfoFirst && (
+            <div className="infoDialog">
+              <div>
+                {" "}
+                <p>
+                  These are the day’s top professional news stories and
+                  conversations. <Link to='/'>Learn more</Link> about how they’re selected.
+                </p>
+              </div>
+              <div>
+                <GrClose
+                  className="infoDialogClose"
+                  onClick={() => setInfoFirst(!InfoFirst)}
+                />
+              </div>
+            </div>
+          )}
+          <div className="infoIcon" onClick={() => setInfoFirst(!InfoFirst)}>
+            <BsFillInfoSquareFill size="0.8rem" className="text-muted" />
+          </div>
         </div>
         <div className={!ShowMore && "RSideBContent"}>
           <Link to="/" className="sideCardPick p-1 d-flex">
