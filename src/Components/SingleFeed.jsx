@@ -11,14 +11,16 @@ import formatDistance from "date-fns/formatDistance";
 
 const SingleFeed = ({ post }) => {
   const result = formatDistance(new Date(), new Date(post.createdAt));
-
+  const profileImg = post.user.image
+    ? post.user.image
+    : "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png";
   return (
     <Card className="feed mt-2" key={post._id}>
       <Card.Body>
         <Card.Title className="d-flex">
           <div className="user-info-side d-flex">
             <div className="user-img mr-3">
-              <img src={post.user.image} />
+              <img src={profileImg} />
             </div>
             <div className="user-info">
               <h4>
