@@ -1,0 +1,36 @@
+.dash-container {
+  background-color: #DCE6F1;
+  border: 1px solid #F3F2EF ;
+  border-radius: 10px;
+}
+#dash-stats {
+  /* width: 650px; */
+background-color: white;
+border: 1px solid #F3F2EF;
+border-radius: 10px;
+}
+#dash-box{
+  background-color: white;
+  border: 1px solid #F3F2EF ;
+  border-radius: 5px;border: 1px solid #F3F2EF ;
+  border-radius: 10px;
+}
+.dash-text{
+  margin-left: 48px;
+  
+}
+.icons{
+  font-size: 1.4rem;
+  color: #666666;
+  margin-left: 15px;
+  margin-right: 10px;
+}
+.horizontal-line{
+  margin: 0px;
+  margin-left: 47px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+} 
+.lighter-color{
+  color: #666666;
+}

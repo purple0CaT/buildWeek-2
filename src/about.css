@@ -1,0 +1,14 @@
+.about-container {
+ 
+  background-color: white;
+  border: 1px solid #F3F2EF ;
+  border-radius: 10px;
+
+}
+#modal-button{
+  color: #fff;
+  font-weight: bold;
+  background-color: #0A66C2;
+  border-radius: 35px;
+  width: 70px;
+}
