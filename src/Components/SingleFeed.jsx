@@ -13,7 +13,7 @@ const SingleFeed = ({ post }) => {
   const result = formatDistance(new Date(), new Date(post.createdAt));
   const profileImg = post.user.image
     ? post.user.image
-    : "https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png";
+    : "https://www.kindpng.com/picc/m/269-2697881_computer-icons-user-clip-art-transparent-png-icon.png";
   return (
     <Card className="feed mt-2" key={post._id}>
       <Card.Body>
