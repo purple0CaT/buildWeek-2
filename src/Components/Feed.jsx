@@ -3,6 +3,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import SingleFeed from "./SingleFeed";
 import { useState, useEffect } from "react";
 import PostFeed from "./Post";
+import FeedLeftBar from "./FeedLeftBar";
+import FeedRightBar from "./FeedRightBar";
+
+
 function Feed() {
   const [posts, getPosts] = useState([]);
   const [checkSort, markSort] = useState(false);
@@ -40,9 +44,12 @@ function Feed() {
   };
   return (
     <>
+      <br />
       <Container>
-        <Row style={{ marginTop: 100 }}>
-          <Col md="2">Side Bar</Col>
+        <Row>
+          <Col md="3">
+            <FeedLeftBar />
+          </Col>
           <Col md="6">
             <PostFeed onNewPostFunction={onNewPost} />
             {posts
@@ -51,7 +58,9 @@ function Feed() {
                 (post) => post.user && <SingleFeed post={post} key={post._id} />
               )}
           </Col>
-          <Col md="4">Another Side Bar</Col>
+          <Col md="3">
+            <FeedRightBar />
+          </Col>
         </Row>
       </Container>
     </>
