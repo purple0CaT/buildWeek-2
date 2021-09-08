@@ -6,7 +6,6 @@ import PostFeed from "./Post";
 import FeedLeftBar from "./FeedLeftBar";
 import FeedRightBar from "./FeedRightBar";
 
-
 function Feed() {
   const [posts, getPosts] = useState([]);
   const [checkSort, markSort] = useState(false);
