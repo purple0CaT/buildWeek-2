@@ -4,7 +4,6 @@
   background-color: white !important;
   border: 1px solid rgba(128, 128, 128, 0.2);
   transition: 0.2s !important;
-
 }
 .sideCardPick {
   color: black !important;
@@ -12,9 +11,9 @@
   margin: 0.2rem 0;
 }
 .RSideBContent {
-    max-height: 16rem;
-    overflow: hidden;
-    transition: 0.2;
+  max-height: 15.5rem;
+  overflow: hidden;
+  transition: 0.2;
 }
 .sideCardPick:hover {
   text-decoration: none;
@@ -29,4 +28,26 @@
 }
 .RshowMore:hover {
   background-color: #ebebeb;
+}
+.RshowMore2 h6 {
+  font-size: 0.8rem !important;
+  transition: 0.2s;
+}
+.RshowMore2 {
+  border-radius: 5px !important;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.RshowMore2:hover h6 {
+  color: black !important;
+}
+.RshowMore2:hover {
+  background-color: #ebebeb;
+}
+.sticky {
+  position: sticky;
+  top: 2rem;
+}
+.promotedCard {
+    font-size: 0.8rem;
 }

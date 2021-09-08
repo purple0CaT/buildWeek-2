@@ -102,7 +102,7 @@ export default function FeedLeftBar() {
           </div>
         </div>
       )}
-      <div className="d-flex flex-wrap mt-2 feedPersonInfo">
+      <div className="d-flex flex-wrap mt-2 feedPersonInfo sticky">
         <Col xs="10" className=" d-flex flex-column py-1">
           <Link>
             <small className=" font-weight-bold">Groups</small>
