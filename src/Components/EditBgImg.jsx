@@ -2,8 +2,16 @@ import React from "react";
 import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
+import { BsCardImage } from "react-icons/bs";
 
-export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
+export default function EditBgImg({
+  imgSrc,
+  renewData,
+  valueAvatar,
+  title,
+  postId,
+  fetchPosts,
+}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -21,24 +29,25 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
     e.preventDefault();
     console.log(0, "Sending!", 0);
     setLoading(true);
+    const url =
+      title === "post-img"
+        ? "https://striveschool-api.herokuapp.com/api/posts/" + postId._id
+        : "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/picture";
+    const token = process.env.REACT_APP_TOKENACCESS;
 
     let formData = new FormData();
     let file = ImageUpld.file;
-    formData.append("profile", file);
+    formData.append(title === "post-img" ? "post" : "profile", file);
     // ==
     try {
-      let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/picture",
-        {
-          method: "POST",
-          body: formData,
-          // mode: "no-cors",
-          headers: {
-            Authorization:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA",
-          },
-        }
-      );
+      let response = await fetch(url, {
+        method: "POST",
+        body: formData,
+        // mode: "no-cors",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
       let data = await response.json();
       if (response.ok) {
         console.log(response);
@@ -52,7 +61,7 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
           handleClose();
         }, 2000);
         setTimeout(() => {
-          renewData();
+          title === "post-img" ? fetchPosts() : renewData();
         }, 2000);
       } else {
         console.log(response);
@@ -65,8 +74,9 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
   //   JSX
   return (
     <>
-      {" "}
-      {valueAvatar ? (
+      {title === "post-img" ? (
+        <BsCardImage onClick={handleShow} size={25} className="mr-2" />
+      ) : valueAvatar ? (
         <div
           className="edit-cover d-flex align-items-center justify-content-center"
           onClick={handleShow}
@@ -74,7 +84,13 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
           <ImPencil size="1rem" />
         </div>
       ) : (
-        <img className="avatar" src={imgSrc} alt="" onClick={handleShow} style={{cursor:'pointer'}}/>
+        <img
+          className="avatar"
+          src={imgSrc}
+          alt=""
+          onClick={handleShow}
+          style={{ cursor: "pointer" }}
+        />
       )}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -82,7 +98,6 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
         </Modal.Header>
         <Form onSubmit={ImgUpload}>
           <Modal.Body>
-            {" "}
             <Form.Group controlId="formSurname">
               <Form.Label>Edit image</Form.Label>
               <div className="d-flex justify-content-center">

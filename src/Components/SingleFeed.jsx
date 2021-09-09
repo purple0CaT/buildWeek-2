@@ -11,7 +11,12 @@ import formatDistance from "date-fns/formatDistance";
 import ModalItem from "./Modal";
 import { useState } from "react";
 
-const SingleFeed = ({ post, onDeletePostFunction, onUpdatePostFunction }) => {
+const SingleFeed = ({
+  post,
+  onDeletePostFunction,
+  onUpdatePostFunction,
+  fetchPosts,
+}) => {
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
   const token = process.env.REACT_APP_TOKENACCESS;
 
@@ -67,6 +72,7 @@ const SingleFeed = ({ post, onDeletePostFunction, onUpdatePostFunction }) => {
               title="update"
               postToUpdate={post}
               onUpdatePost={onUpdatePostFunction}
+              fetchPosts={fetchPosts}
             />
           </div>
         </Card.Title>
