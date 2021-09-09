@@ -61,6 +61,7 @@ function MainContainer({ match }) {
               <EditBgImg
                 imgSrc={PersonInfo.data.image}
                 renewData={() => fetchPerson()}
+								valueAvatar={true}
               />
             )}
             {/* AVATAR */}
@@ -73,7 +74,11 @@ function MainContainer({ match }) {
                 style={{ aspectRatio: "1/1" }}
               />
             ) : (
-              <img className="avatar" src={PersonInfo.data.image} alt="" />
+              <EditBgImg
+                imgSrc={PersonInfo.data.image}
+                renewData={() => fetchPerson()}
+								valueAvatar={false}
+              />
             )}
           </Col>
           <Col xs="12 d-flex flex-wrap">

@@ -3,7 +3,7 @@ import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 
-export default function EditBgImg({ imgSrc, renewData }) {
+export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -66,12 +66,16 @@ export default function EditBgImg({ imgSrc, renewData }) {
   return (
     <>
       {" "}
-      <div
-        className="edit-cover d-flex align-items-center justify-content-center"
-        onClick={handleShow}
-      >
-        <ImPencil size="1rem" />
-      </div>
+      {valueAvatar ? (
+        <div
+          className="edit-cover d-flex align-items-center justify-content-center"
+          onClick={handleShow}
+        >
+          <ImPencil size="1rem" />
+        </div>
+      ) : (
+        <img className="avatar" src={imgSrc} alt="" onClick={handleShow} style={{cursor:'pointer'}}/>
+      )}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit image</Modal.Title>
