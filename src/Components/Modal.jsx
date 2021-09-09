@@ -3,22 +3,24 @@ import { Modal, Button, FormControl } from "react-bootstrap";
 import Privacy from "./Privacy";
 import TextareaAutosize from "react-textarea-autosize";
 import { BsCardImage, BsThreeDots, BsFillBriefcaseFill } from "react-icons/bs";
-import { AiFillPlaySquare } from "react-icons/ai";
+import { AiFillPlaySquare, AiFillEdit } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { GiFlowerStar } from "react-icons/gi";
 import { HiDocumentText } from "react-icons/hi";
 
-const ModalItem = ({ onNewPostFunction }) => {
+const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
   const [show, setShow] = useState(false);
-  const [text, setText] = useState(new Array(6).join("\n"));
+  const [text, setText] = useState(
+    title === "update" ? postToUpdate.text : new Array(6).join("\n")
+  );
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const token = process.env.REACT_APP_TOKENACCESS;
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
+  const post = {
+    text,
+  };
   const addPost = async () => {
-    const post = {
-      text,
-    };
     try {
       let response = await fetch(url, {
         method: "POST",
@@ -32,21 +34,45 @@ const ModalItem = ({ onNewPostFunction }) => {
         const newPosts = await response.json();
         // the comment has been sent succesfully!!
         console.log("Posts", newPosts);
-        onNewPostFunction(newPosts);
-        alert("Comment was sent!");
+        onNewPost(newPosts);
       } else {
         console.log("error");
         alert("something went wrong");
       }
     } catch (error) {
-      console.log("error");
+      console.log(error);
+    }
+  };
+
+  const updatePost = async () => {
+    try {
+      const response = await fetch(url + postToUpdate._id, {
+        method: "PUT",
+        body: JSON.stringify(post),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (response.ok) {
+        const updatedPost = await response.json();
+        console.log("updated", updatedPost);
+        onUpdatePost(updatedPost);
+      } else {
+        console.log("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
     <>
-      <button id="modal-btn" onClick={handleShow}>
-        Start a post
+      <button
+        id={title === "update" ? "update-btn" : "modal-btn"}
+        onClick={handleShow}
+      >
+        {title === "update" ? <AiFillEdit /> : "Start a post"}
       </button>
 
       <Modal show={show} onHide={handleClose}>
@@ -90,15 +116,28 @@ const ModalItem = ({ onNewPostFunction }) => {
             <BsThreeDots size={25} />
           </div>
           <Privacy />
-          <Button
-            variant="primary"
-            onClick={() => {
-              handleClose();
-              addPost();
-            }}
-          >
-            Post
-          </Button>
+
+          {title === "update" ? (
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleClose();
+                updatePost();
+              }}
+            >
+              Edit
+            </Button>
+          ) : (
+            <Button
+              variant="primary"
+              onClick={() => {
+                handleClose();
+                addPost();
+              }}
+            >
+              Post
+            </Button>
+          )}
         </Modal.Footer>
       </Modal>
     </>
