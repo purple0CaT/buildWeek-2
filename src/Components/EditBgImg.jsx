@@ -15,6 +15,7 @@ export default function EditBgImg({
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const postImg = postId.image;
   // Loaders
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
@@ -86,7 +87,7 @@ export default function EditBgImg({
       ) : (
         <img
           className="avatar"
-          src={imgSrc}
+          src={title === "post-img" ? postImg : imgSrc}
           alt=""
           onClick={handleShow}
           style={{ cursor: "pointer" }}
