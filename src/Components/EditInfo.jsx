@@ -1,5 +1,14 @@
 import React from "react";
-import { Modal, Button, Row, Col, Form, Carousel } from "react-bootstrap";
+import {
+  Modal,
+  Button,
+  Row,
+  Col,
+  Form,
+  Carousel,
+  Spinner,
+  Alert,
+} from "react-bootstrap";
 import { useState, useEffect } from "react";
 import { ImPencil } from "react-icons/im";
 import { AiFillEye } from "react-icons/ai";
@@ -27,6 +36,9 @@ export default function EditInfo({
   const handleShow = () => setShow(true);
   const [FormerName, setFormerName] = useState();
   const token = process.env.REACT_APP_TOKENACCESS;
+  // Loaders
+  const [Loading, setLoading] = useState(false);
+  const [Success, setSuccess] = useState(false);
 
   //   REFRESH
   useEffect(() => {
@@ -53,7 +65,6 @@ export default function EditInfo({
   const sendData = (e) => {
     e.preventDefault();
     postData();
-    handleClose();
   };
   //   FETCHING COUNTRIES
   const fetchCountries = async () => {
@@ -74,6 +85,7 @@ export default function EditInfo({
   const url = "https://striveschool-api.herokuapp.com/api/profile/";
 
   const postData = async () => {
+    setLoading(true);
     try {
       let response = await fetch(url, {
         method: "PUT",
@@ -83,9 +95,20 @@ export default function EditInfo({
           Authorization: "Bearer " + token,
         },
       });
+      let data = await response.json();
       if (response.ok) {
-        let data = await response.json();
-        renewData();
+        setLoading(false);
+        setSuccess(true);
+
+        setTimeout(() => {
+          setSuccess(false);
+        }, 1500);
+        setTimeout(() => {
+          handleClose();
+        }, 2000);
+        setTimeout(() => {
+          renewData();
+        }, 2000);
       } else {
         console.log("Error");
       }
@@ -336,6 +359,8 @@ export default function EditInfo({
                 </Row>
               </Modal.Body>
               <Modal.Footer>
+                {Success && <Alert variant="success">Success</Alert>}
+                {Loading && <Spinner animation="grow" />}
                 <Button variant="primary" type="submit">
                   Save
                 </Button>
