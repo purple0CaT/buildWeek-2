@@ -8,7 +8,7 @@ import { ImStatsBars } from "react-icons/im";
 import { GiFlowerStar } from "react-icons/gi";
 import { HiDocumentText } from "react-icons/hi";
 
-const ModalItem = ({ onNewPostFunction }) => {
+const ModalItem = ({ onNewPost }) => {
   const [show, setShow] = useState(false);
   const [text, setText] = useState(new Array(6).join("\n"));
   const handleClose = () => setShow(false);
@@ -32,14 +32,14 @@ const ModalItem = ({ onNewPostFunction }) => {
         const newPosts = await response.json();
         // the comment has been sent succesfully!!
         console.log("Posts", newPosts);
-        onNewPostFunction(newPosts);
+        onNewPost(newPosts);
         alert("Comment was sent!");
       } else {
         console.log("error");
         alert("something went wrong");
       }
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   };
 

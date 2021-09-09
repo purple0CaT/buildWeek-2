@@ -8,10 +8,14 @@ import FeedRightBar from "./FeedRightBar";
 
 function Feed() {
   const [posts, getPosts] = useState([]);
+  const [newPost, setNewPost] = useState({});
   const [checkSort, markSort] = useState(false);
   const token = process.env.REACT_APP_TOKENACCESS;
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
-
+  const onNewPost = (newPost) => {
+    setNewPost(newPost);
+    getPosts(...posts, newPost);
+  };
   const fetchPosts = async () => {
     try {
       let response = await fetch(url, {
@@ -38,9 +42,6 @@ function Feed() {
     console.log(posts);
   }, []);
 
-  const onNewPost = (newPost) => {
-    getPosts(...posts, newPost);
-  };
   return (
     <>
       <br />
