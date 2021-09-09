@@ -7,8 +7,16 @@ import { AiFillPlaySquare, AiFillEdit } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { GiFlowerStar } from "react-icons/gi";
 import { HiDocumentText } from "react-icons/hi";
+import ImageForPost from "./ImageForPost";
+import EditBgImg from "./EditBgImg";
 
-const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
+const ModalItem = ({
+  onNewPost,
+  postToUpdate,
+  onUpdatePost,
+  title,
+  fetchPosts,
+}) => {
   const [show, setShow] = useState(false);
   const [text, setText] = useState(
     title === "update" ? postToUpdate.text : new Array(6).join("\n")
@@ -17,10 +25,11 @@ const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
   const handleShow = () => setShow(true);
   const token = process.env.REACT_APP_TOKENACCESS;
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
-  const post = {
-    text,
-  };
+
   const addPost = async () => {
+    const post = {
+      text,
+    };
     try {
       let response = await fetch(url, {
         method: "POST",
@@ -45,6 +54,11 @@ const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
   };
 
   const updatePost = async () => {
+    const post = {
+      ...postToUpdate,
+      text,
+    };
+    console.log("look here: ", postToUpdate);
     try {
       const response = await fetch(url + postToUpdate._id, {
         method: "PUT",
@@ -107,7 +121,12 @@ const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
         </Modal.Body>
         <Modal.Footer id="modal-footer">
           <div className="icons-footer">
-            <BsCardImage size={25} />
+            <EditBgImg
+              title="post-img"
+              postId={postToUpdate}
+              onUpdatePostFunction={onUpdatePost}
+              fetchPosts={fetchPosts}
+            />
             <AiFillPlaySquare size={25} />
             <HiDocumentText size={25} />
             <BsFillBriefcaseFill size={25} />

@@ -4,6 +4,7 @@ import { BsCardImage } from "react-icons/bs";
 import { AiFillPlaySquare } from "react-icons/ai";
 import { SiGooglecalendar } from "react-icons/si";
 import { RiArticleFill } from "react-icons/ri";
+import ImageForPost from "./ImageForPost";
 const PostFeed = ({ onNewPostFunction }) => {
   return (
     <Card id="post-card">

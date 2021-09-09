@@ -355,6 +355,9 @@ div.icons-footer svg {
   padding: 5px 7px;
   color: #00000099;
 }
+#three-dots {
+  color: red;
+}
 #three-dots:hover,
 #update-btn:hover {
   background-color: rgb(219, 215, 215);

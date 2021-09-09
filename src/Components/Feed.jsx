@@ -72,6 +72,7 @@ function Feed() {
                     <SingleFeed
                       onDeletePostFunction={onDeletePost}
                       onUpdatePostFunction={onUpdatePost}
+                      fetchPosts={fetchPosts}
                       post={post}
                       key={post._id}
                     />

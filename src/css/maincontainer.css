@@ -31,6 +31,16 @@ a {
   border-radius: 50%;
   border: 5px solid white;
 }
+.avatarEdit {
+  margin: 1rem 0;
+  height: 10rem;
+  width: 10rem !important;
+  object-fit: cover;
+  bottom: -20%;
+  left: 5%;
+  border-radius: 50%;
+  border: 5px solid white;
+}
 
 .edit-cover {
   cursor: pointer;
