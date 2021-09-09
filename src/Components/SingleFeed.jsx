@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap";
+import { Card, Dropdown } from "react-bootstrap";
 import { BsThreeDots } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
@@ -8,8 +8,10 @@ import {
   RiSendPlaneFill,
 } from "react-icons/ri";
 import formatDistance from "date-fns/formatDistance";
+import ModalItem from "./Modal";
+import { useState } from "react";
 
-const SingleFeed = ({ post, onDeletePostFunction }) => {
+const SingleFeed = ({ post, onDeletePostFunction, onUpdatePostFunction }) => {
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
   const token = process.env.REACT_APP_TOKENACCESS;
 
@@ -57,12 +59,15 @@ const SingleFeed = ({ post, onDeletePostFunction }) => {
             </div>
           </div>
           <div className="ml-auto">
-            <button
-              style={{ border: "none", background: "#fff" }}
-              onClick={deletePost}
-            >
+            <button id="three-dots" onClick={deletePost}>
               <BsThreeDots />
             </button>
+
+            <ModalItem
+              title="update"
+              postToUpdate={post}
+              onUpdatePost={onUpdatePostFunction}
+            />
           </div>
         </Card.Title>
         <Card.Text>{post.text}</Card.Text>

@@ -20,6 +20,15 @@ function Feed() {
   const onDeletePost = (postId) => {
     setPosts(posts.filter((post) => post._id !== postId));
   };
+
+  const onUpdatePost = (updatedPost) => {
+    const toUpdate = posts.map((x) => x._id).indexOf(updatedPost._id);
+
+    posts[toUpdate] = updatedPost;
+
+    setPosts([...posts]);
+  };
+
   const fetchPosts = async () => {
     try {
       let response = await fetch(url, {
@@ -32,7 +41,6 @@ function Feed() {
         let data = await response.json();
 
         setPosts(data);
-        console.log(posts);
       } else {
         console.log("Error");
       }
@@ -43,7 +51,6 @@ function Feed() {
 
   useEffect(() => {
     fetchPosts();
-    console.log(posts);
   }, []);
 
   return (
@@ -64,6 +71,7 @@ function Feed() {
                   post.user && (
                     <SingleFeed
                       onDeletePostFunction={onDeletePost}
+                      onUpdatePostFunction={onUpdatePost}
                       post={post}
                       key={post._id}
                     />
