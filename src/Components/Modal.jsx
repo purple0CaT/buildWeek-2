@@ -33,7 +33,6 @@ const ModalItem = ({ onNewPost }) => {
         // the comment has been sent succesfully!!
         console.log("Posts", newPosts);
         onNewPost(newPosts);
-        alert("Comment was sent!");
       } else {
         console.log("error");
         alert("something went wrong");

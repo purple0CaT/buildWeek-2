@@ -9,7 +9,28 @@ import {
 } from "react-icons/ri";
 import formatDistance from "date-fns/formatDistance";
 
-const SingleFeed = ({ post }) => {
+const SingleFeed = ({ post, onDeletePostFunction }) => {
+  const url = "https://striveschool-api.herokuapp.com/api/posts/";
+  const token = process.env.REACT_APP_TOKENACCESS;
+
+  const deletePost = async () => {
+    try {
+      const response = await fetch(url + post._id, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (response.ok) {
+        console.log("Comment Deleted", post._id);
+        onDeletePostFunction(post._id);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   const result = formatDistance(new Date(), new Date(post.createdAt));
   const profileImg = post.user.image
     ? post.user.image
@@ -36,7 +57,12 @@ const SingleFeed = ({ post }) => {
             </div>
           </div>
           <div className="ml-auto">
-            <BsThreeDots />
+            <button
+              style={{ border: "none", background: "#fff" }}
+              onClick={deletePost}
+            >
+              <BsThreeDots />
+            </button>
           </div>
         </Card.Title>
         <Card.Text>{post.text}</Card.Text>

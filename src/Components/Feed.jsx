@@ -7,14 +7,18 @@ import FeedLeftBar from "./FeedLeftBar";
 import FeedRightBar from "./FeedRightBar";
 
 function Feed() {
-  const [posts, getPosts] = useState([]);
+  const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({});
   const [checkSort, markSort] = useState(false);
   const token = process.env.REACT_APP_TOKENACCESS;
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
+
   const onNewPost = (newPost) => {
-    setNewPost(newPost);
-    getPosts(...posts, newPost);
+    setPosts([...posts, newPost]);
+  };
+
+  const onDeletePost = (postId) => {
+    setPosts(posts.filter((post) => post._id !== postId));
   };
   const fetchPosts = async () => {
     try {
@@ -27,7 +31,7 @@ function Feed() {
       if (response.ok) {
         let data = await response.json();
 
-        getPosts(data);
+        setPosts(data);
         console.log(posts);
       } else {
         console.log("Error");
@@ -54,8 +58,16 @@ function Feed() {
             <PostFeed onNewPostFunction={onNewPost} />
             {posts
               .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+              .slice(0, 100)
               .map(
-                (post) => post.user && <SingleFeed post={post} key={post._id} />
+                (post) =>
+                  post.user && (
+                    <SingleFeed
+                      onDeletePostFunction={onDeletePost}
+                      post={post}
+                      key={post._id}
+                    />
+                  )
               )}
           </Col>
           <Col md="3">
