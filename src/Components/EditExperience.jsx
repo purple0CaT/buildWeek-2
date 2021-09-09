@@ -41,10 +41,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
   //   REFRESH
   useEffect(() => {
     fetchExp();
-    // console.log("Mounted", EditingInfo )
-    // console.log("USER ID", userExperience[0].user)
-    // fetchedUserId = userExperience[0].user
-    // console.log("FETCHED USER ID",fetchedUserId)
+
   }, []);
   
   // EXPERIENCE Model:
@@ -71,7 +68,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
     endDate: null,
     description: "",
     area: "",
-  
+    file: null
   });
   // Data set
   const dataSet = (valname, valdata) => {
@@ -82,6 +79,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
     e.preventDefault();
     editData();
     handleClose();
+    imageUpload();
   };
   const deleteData = (e) => {
     e.preventDefault();
@@ -155,6 +153,50 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
       console.log(err);
     }
   };
+
+  const imageUpload = async () => {
+    
+    let formData = new FormData();
+    let file = EditingInfo.file;
+    formData.append("experience", file);
+    try {
+      let response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/experiences/" +expId+ "/picture",
+        {
+          method: "POST",
+          body: formData,
+          // mode: "no-cors",
+          headers: {
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM1ZTBhYTdiZTZjMTAwMTVmOWRiOWMiLCJpYXQiOjE2MzA5MjA4NzQsImV4cCI6MTYzMjEzMDQ3NH0.q5C0SILXauX7HfPrCSoz6sHV9dLLY4aLIoO6gnpApKA",
+          },
+        }
+      );
+      let data = await response.json();
+      if (response.ok) {
+        console.log(response);
+        console.log(data);
+        alert("Image upload successful")
+        // setLoading(false);
+        // setSuccess(true);
+        // setTimeout(() => {
+        //   setSuccess(false);
+        // }, 1500);
+        // setTimeout(() => {
+        //   handleClose();
+        // }, 2000);
+        // setTimeout(() => {
+        //   renewData();
+        // }, 2000);
+      } else {
+        console.log(response);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  
 
   // JSX !
   return (
@@ -304,8 +346,16 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
                     <Form.Control as="textarea" rows={5} 
                     value={EditingInfo.description}
                     onChange={(e) => dataSet("description", e.target.value)}
-                    
                     />
+                  </Form.Group>
+                  </Col>
+                  <Col xs="12">
+                  <Form.Group controlId="formSurname">
+                    <Form.Label>Add Image</Form.Label>
+                    <div className="d-flex justify-content-center">
+                      <img src="" alt="" className="avatarEdit" />
+                    </div>
+                    <Form.File id="fileUpload" onChange={(e) => dataSet("file", e.target.files[0])} required />
                   </Form.Group>
                   </Col>
                 </Row>

@@ -74,6 +74,12 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
     setEditingInfo({ ...EditingInfo, [valname]: valdata });
     
   };
+// Image upload
+  const [ImageUpld, setImageUpld] = useState({ file: null });
+  const uploadF = (e) => {
+    console.log(e.target.files[0]);
+    setImageUpld({ file: e.target.files[0] })
+  }
   // DATA SEND
   const sendData = (e) => {
     e.preventDefault();
@@ -283,7 +289,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
                     
                     />
                   </Form.Group>
-                  </Col>
+                  </Col>               
                 </Row>
               </Modal.Body>
               <Modal.Footer>
