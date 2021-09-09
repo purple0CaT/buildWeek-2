@@ -1,5 +1,5 @@
 import { Card, Dropdown } from "react-bootstrap";
-import { BsThreeDots } from "react-icons/bs";
+import { BsThreeDots, BsFillTrashFill } from "react-icons/bs";
 import { AiOutlineLike } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
 import {
@@ -65,7 +65,7 @@ const SingleFeed = ({
           </div>
           <div className="ml-auto">
             <button id="three-dots" onClick={deletePost}>
-              <BsThreeDots />
+              <BsFillTrashFill variant="danger" />
             </button>
 
             <ModalItem
