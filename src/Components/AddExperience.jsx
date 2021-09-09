@@ -32,9 +32,11 @@ const formatDate = (date) => {
   return [year, month, day].join("-");
 };
 
-const [date, setDate] = useState(null)
-const [selectedDate, setSelectedDate] = useState("2021-09-08")
-
+const [startDate, setStartDate] = useState(null)
+const [selectedStartDate, setSelectedStartDate] = useState("2021-09-08")
+const [endDate, setEndDate] = useState(null)
+const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
+// console.log("THIS IS STATE SELECTED DATE", selectedDate)
   //   REFRESH
   useEffect(() => {
    
@@ -56,11 +58,12 @@ const [selectedDate, setSelectedDate] = useState("2021-09-08")
 //     "image": ... //server generated on upload
 // }   
 
+
   //   EDITING INFO
   const [EditingInfo, setEditingInfo] = useState({
     role: "",
     company: "",
-    startDate: "2019-06-16",
+    startDate: '',
     endDate: null,
     description: "",
     area: "",
@@ -69,6 +72,7 @@ const [selectedDate, setSelectedDate] = useState("2021-09-08")
   // Data set
   const dataSet = (valname, valdata) => {
     setEditingInfo({ ...EditingInfo, [valname]: valdata });
+    
   };
   // DATA SEND
   const sendData = (e) => {
@@ -191,11 +195,10 @@ const [selectedDate, setSelectedDate] = useState("2021-09-08")
                     </Form.Group>
                   </Col>
                   <Col xs="6">
-                  <div className="d-flex">
                   <Form.Group controlId="formHeadLine">
                       <Form.Label>Start date * </Form.Label>     
                     </Form.Group>
-                      {/* <DropdownDate
+                      <DropdownDate classes="d-flex"
                         startDate={
                           // optional, if not provided 1900-01-01 is startDate
                           "2012-01-01" // 'yyyy-mm-dd' format only
@@ -206,21 +209,48 @@ const [selectedDate, setSelectedDate] = useState("2021-09-08")
                         }
                         selectedDate={
                           // optional
-                          selectedDate // 'yyyy-mm-dd' format only
+                          selectedStartDate // 'yyyy-mm-dd' format only
                         }
-                        onDateChange={(date) => {
+                        onDateChange={(startDate) => {
                           // optional
-                          console.log(date);
-                          setDate({date})
-                          setSelectedDate(formatDate(date))
+                          // console.log(date);
+                          setStartDate({startDate})
+                          setSelectedStartDate(formatDate(startDate))
+                          dataSet("startDate", selectedStartDate)
                           // this.setState({ date: date, selectedDate: formatDate(date) });
                         }}
-                      /> */}
-                </div>
+                      />
+                  </Col>
+                  <Col xs="6">
+                  <Form.Group controlId="formHeadLine">
+                      <Form.Label>End date * </Form.Label>     
+                    </Form.Group>
+                      <DropdownDate classes="d-flex"
+                        startDate={
+                          // optional, if not provided 1900-01-01 is startDate
+                          "2012-01-01" // 'yyyy-mm-dd' format only
+                        }
+                        endDate={
+                          // optional, if not provided current date is endDate
+                          "2021-09-08" // 'yyyy-mm-dd' format only
+                        }
+                        selectedDate={
+                          // optional
+                          selectedEndDate // 'yyyy-mm-dd' format only
+                        }
+                        onDateChange={(endDate) => {
+                          // optional
+                          // console.log(date);
+                          setEndDate({endDate})
+                          setSelectedEndDate(formatDate(endDate))
+                          dataSet("endDate", selectedEndDate)
+                          // this.setState({ date: date, selectedDate: formatDate(date) });
+                        }}
+                      />
                   </Col>
                   <Col xs="6">               
                   </Col>
-                  <Col xs="12">
+                  <Col xs="12" className="mt-3">
                     <Form.Group controlId="checkEducation">
                       <Form.Check
                         className="checkbox-edit"

@@ -11,13 +11,18 @@ const [userExperience, setExperience]= useState([])
 const token = process.env.REACT_APP_TOKENACCESS;
 // const fetchedUserId = ""
 
+
 useEffect(() => {
   fetchExp();
-  console.log("Mounted", userExperience )
+  // console.log("Mounted", userExperience )
   // console.log("USER ID", userExperience[0].user)
   // fetchedUserId = userExperience[0].user
   // console.log("FETCHED USER ID",fetchedUserId)
 }, []);
+
+// useEffect(() => {
+//   fetchExp();
+// }, [userExperience.length]);
 
 const fetchExp = async () => {
   try {
@@ -71,8 +76,14 @@ const fetchExp = async () => {
         </div>
         
         <div className="text-left ml-4 my-0"> {exp.company}</div>
-            {/* {format(exp.startDate,'MMM'-'yyyy')} - {format(exp.endDate, 'MMM'-'yyyy')} */}
-        {/* <div className="lighter-color">{${format(parseISO(exp.startDate), MMM-yyyy)} - ${format(parseISO(exp.endDate),MMM-yyyy)}}</div> */}
+        
+        
+          {/* <div className="lighter-color text-left ml-4 my-0 py-0">{format(parseISO(exp.startDate), "MMM yyyy")}</div> */}
+
+        
+          <div className="lighter-color text-left ml-4 my-0 py-0">{format(parseISO(exp.startDate), "MMM yyyy")} - {format(parseISO(exp.endDate), "MMM yyyy")}</div>
+        
+        
         <div className="lighter-color text-left ml-4 my-0 py-0">{exp.area} </div>
           <div className="text-left ml-4">
           {exp.description}
