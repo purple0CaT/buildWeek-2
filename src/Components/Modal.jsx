@@ -7,6 +7,7 @@ import { AiFillPlaySquare, AiFillEdit } from "react-icons/ai";
 import { ImStatsBars } from "react-icons/im";
 import { GiFlowerStar } from "react-icons/gi";
 import { HiDocumentText } from "react-icons/hi";
+import ImageForPost from "./ImageForPost";
 
 const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
   const [show, setShow] = useState(false);
@@ -107,7 +108,7 @@ const ModalItem = ({ onNewPost, postToUpdate, onUpdatePost, title }) => {
         </Modal.Body>
         <Modal.Footer id="modal-footer">
           <div className="icons-footer">
-            <BsCardImage size={25} />
+            <ImageForPost />
             <AiFillPlaySquare size={25} />
             <HiDocumentText size={25} />
             <BsFillBriefcaseFill size={25} />
