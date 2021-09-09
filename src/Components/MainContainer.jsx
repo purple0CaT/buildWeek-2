@@ -59,15 +59,7 @@ function MainContainer({ match }) {
                 alt=""
               />
               <EditBgImg
-                personId={PersonInfo.data._id}
                 imgSrc={PersonInfo.data.image}
-                nameSrc={PersonInfo.data.name}
-                surnameSrc={PersonInfo.data.surname}
-                areaSrc={PersonInfo.data.area}
-                bioSrc={PersonInfo.data.bio}
-                usernameSrc={PersonInfo.data.username}
-                titleSrc={PersonInfo.data.title}
-                emailSrc={PersonInfo.data.email}
                 renewData={() => fetchPerson()}
               />
               {/* AVATAR */}
@@ -75,7 +67,11 @@ function MainContainer({ match }) {
             </Col>
             <Col xs="12 d-flex flex-wrap">
               {/* LEFT SIDE */}
-              <Col xs="12" md='8' className='d-flex flex-column align-items-start name-box'>
+              <Col
+                xs="12"
+                md="8"
+                className="d-flex flex-column align-items-start name-box"
+              >
                 {" "}
                 <h2>
                   {PersonInfo.data.name} {PersonInfo.data.surname}{" "}
@@ -107,7 +103,7 @@ function MainContainer({ match }) {
                 </div>
               </Col>
               {/* RIGHT SIDE */}
-              <Col xs="12" md='4' className="d-flex flex-column p-4">
+              <Col xs="12" md="4" className="d-flex flex-column p-4">
                 {" "}
                 <div className="d-flex justify-content-end my-2">
                   <EditInfo

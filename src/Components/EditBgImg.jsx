@@ -3,7 +3,7 @@ import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 
-export default function EditBgImg({ imgSrc, renewIt }) {
+export default function EditBgImg({ imgSrc, renewData }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -51,6 +51,9 @@ export default function EditBgImg({ imgSrc, renewIt }) {
         setTimeout(() => {
           handleClose();
         }, 2000);
+        setTimeout(() => {
+          renewData();
+        }, 2000);
       } else {
         console.log(response);
       }
@@ -79,11 +82,7 @@ export default function EditBgImg({ imgSrc, renewIt }) {
             <Form.Group controlId="formSurname">
               <Form.Label>Edit image</Form.Label>
               <div className="d-flex justify-content-center">
-                <img
-                  src={ImageUpld.file ? ImageUpld.file : imgSrc}
-                  alt=""
-                  className="avatarEdit"
-                />
+                <img src={imgSrc} alt="" className="avatarEdit" />
               </div>
               <Form.File id="fileUpload" onChange={uploadF} required />
             </Form.Group>
