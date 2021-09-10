@@ -35,7 +35,7 @@ export default function EditBgImg({
         ? "https://striveschool-api.herokuapp.com/api/posts/" + postId._id
         : "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/picture";
     const token = process.env.REACT_APP_TOKENACCESS;
-
+    const method = title === "post-img" ? "PUT" : "POST";
     let formData = new FormData();
     let file = ImageUpld.file;
     formData.append(title === "post-img" ? "post" : "profile", file);

@@ -29,6 +29,7 @@ function Feed() {
     posts[toUpdate] = updatedPost;
 
     setPosts([...posts]);
+    fetchPosts();
   };
 
   const fetchPosts = async () => {
@@ -84,7 +85,7 @@ function Feed() {
             <FeedLeftBar />
           </Col>
           <Col md="6">
-            <PostFeed onNewPostFunction={onNewPost} />
+            <PostFeed onNewPostFunction={onNewPost} fetchPosts={fetchPosts} />
             {posts
               .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
               .slice(0, 25)

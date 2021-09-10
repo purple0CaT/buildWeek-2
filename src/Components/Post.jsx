@@ -5,7 +5,7 @@ import { AiFillPlaySquare } from "react-icons/ai";
 import { SiGooglecalendar } from "react-icons/si";
 import { RiArticleFill } from "react-icons/ri";
 import ImageForPost from "./ImageForPost";
-const PostFeed = ({ onNewPostFunction }) => {
+const PostFeed = ({ onNewPostFunction, fetchPosts }) => {
   return (
     <Card id="post-card">
       <Card.Body>
@@ -17,7 +17,11 @@ const PostFeed = ({ onNewPostFunction }) => {
             />
           </div>
           <div className="post-btn w-100">
-            <ModalItem title="post" onNewPost={onNewPostFunction} />
+            <ModalItem
+              title="post"
+              onNewPost={onNewPostFunction}
+              fetchPosts={fetchPosts}
+            />
           </div>
         </div>
 

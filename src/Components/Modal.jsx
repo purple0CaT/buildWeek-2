@@ -8,7 +8,7 @@ import { ImStatsBars } from "react-icons/im";
 import { GiFlowerStar } from "react-icons/gi";
 import { HiDocumentText } from "react-icons/hi";
 import ImageForPost from "./ImageForPost";
-import EditBgImg from "./EditBgImg";
+import EditBgImg from "./AddImgToPost";
 
 const ModalItem = ({
   onNewPost,
@@ -21,10 +21,65 @@ const ModalItem = ({
   const [text, setText] = useState(
     title === "update" ? postToUpdate.text : new Array(6).join("\n")
   );
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const token = process.env.REACT_APP_TOKENACCESS;
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
+  // Loaders
+  const [Loading, setLoading] = useState(false);
+  const [Success, setSuccess] = useState(false);
+  // NEW POST FETCHING ==================================== <<<<
+  const [ImageUpld, setImageUpld] = useState({ file: null });
+
+  const uploadF = (e) => {
+    console.log(e.target.files[0]);
+    setImageUpld({ file: e.target.files[0] });
+  };
+  // FETCH ===== <<<<
+  const ImgUpload = async (postId) => {
+    console.log(0, "Sending!", 0);
+    setLoading(true);
+    const url =
+      "https://striveschool-api.herokuapp.com/api/posts/" + postId._id;
+
+    const token = process.env.REACT_APP_TOKENACCESS;
+
+    let formData = new FormData();
+    let file = ImageUpld.file;
+    formData.append("post", file);
+    // ==
+    try {
+      let response = await fetch(url, {
+        method: "POST",
+        body: formData,
+        // mode: "no-cors",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      let data = await response.json();
+      if (response.ok) {
+        console.log(response);
+        console.log(data);
+        setLoading(false);
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 1500);
+        setTimeout(() => {
+          handleClose();
+        }, 2000);
+        setTimeout(() => {
+          fetchPosts();
+        }, 2000);
+      } else {
+        console.log(response);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const addPost = async () => {
     const post = {
@@ -43,6 +98,7 @@ const ModalItem = ({
         const newPost = await response.json();
 
         // if image upload image here
+        ImgUpload(newPost);
         // the comment has been sent succesfully!!
         console.log("Posts", newPost);
         onNewPost(newPost);
@@ -123,12 +179,13 @@ const ModalItem = ({
         </Modal.Body>
         <Modal.Footer id="modal-footer">
           <div className="icons-footer">
-            <EditBgImg
-              title="post-img"
-              postId={postToUpdate}
-              onUpdatePostFunction={onUpdatePost}
-              fetchPosts={fetchPosts}
-            />
+            
+            {title === "post" ? <ImageForPost
+              uploadF={uploadF}
+              ImgUpload={ImgUpload}
+              Loading={Loading}
+              Success={Success}
+            /> : <EditBgImg />}
             <AiFillPlaySquare size={25} />
             <HiDocumentText size={25} />
             <BsFillBriefcaseFill size={25} />
