@@ -176,7 +176,7 @@ const [meProfile, setMeProfile] = useState(null)
                       Strive School Student <br /> Full Stack Developer
                     </Col>
                   </Row>
-                  <Link to="/home">
+                  <Link to="/home" style={{ textDecoration: 'none' }}>
                   <Button id="button-myPage" variant="outline-primary"
                     variant="outline-primary"
                   >
