@@ -70,31 +70,41 @@ const Experience = ({match}) => {
                   ( <div></div>)
                 : (<img className="image" src={exp.image} alt="" />)
                 }
-                </Col> 
+                  {!exp.image ? (
+                    <div></div>
+                  ) : (
+                    <img className="image" src={exp.image} alt="" />
+                  )}
                 <Col xs="11">
                   <div className="ml-2">
                   <div className="text-left d-flex" style={{ height: "15px" }}>
                     <h6 className="my-0 py-0"> {exp.role} </h6>
                     <div className="d-flex ml-auto">
                       <EditExperience userId={exp.user} expId={exp._id} />
+                      className="text-left d-flex"
+                      style={{ height: "15px" }}
+                    >
+                      <h6 className="my-0 py-0"> {exp.role} </h6>
+                      <div className="d-flex ml-auto">
+                        <EditExperience userId={exp.user} expId={exp._id} />
+                      </div>
                     </div>
-                  </div>
-                  <div className="text-left my-0"> {exp.company}</div>
-                {!exp.endDate ? 
-                (<div className="lighter-color text-left my-0 py-0">
-                    {format(parseISO(exp.startDate), "MMM yyyy")} -{" "}                   
-                  </div>)
-                : 
-                (<div className="lighter-color text-left my-0 py-0">
-                    {format(parseISO(exp.startDate), "MMM yyyy")} -{" "}
-                    {format(parseISO(exp.endDate), "MMM yyyy")}
-                  </div>
-                )}
-                  <div className="lighter-color text-left my-0 py-0">
-                    {exp.area}{" "}
-                  </div>
-                  <div className="text-left">{exp.description}</div>
-                  <hr />
+                    <div className="text-left my-0"> {exp.company}</div>
+                    {!exp.endDate ? (
+                      <div className="lighter-color text-left my-0 py-0">
+                        {format(parseISO(exp.startDate), "MMM yyyy")} -{" "}
+                      </div>
+                    ) : (
+                      <div className="lighter-color text-left my-0 py-0">
+                        {format(parseISO(exp.startDate), "MMM yyyy")} -{" "}
+                        {format(parseISO(exp.endDate), "MMM yyyy")}
+                      </div>
+                    )}
+                    <div className="lighter-color text-left my-0 py-0">
+                      {exp.area}{" "}
+                    </div>
+                    <div className="text-left">{exp.description}</div>
+                    <hr />
                   </div>
                 </Col>
               </Row>
