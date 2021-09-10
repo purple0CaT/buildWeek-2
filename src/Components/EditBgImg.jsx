@@ -3,8 +3,9 @@ import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { BsCardImage } from "react-icons/bs";
+import {withRouter} from "react-router-dom"
 
-export default function EditBgImg({
+function EditBgImg({
   imgSrc,
   renewData,
   valueAvatar,
