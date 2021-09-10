@@ -6,11 +6,11 @@ import "../experience.css";
 import AddExperience from "./AddExperience";
 import EditExperience from "./EditExperience";
 
-const Experience = (match) => {
+const Experience = ({match}) => {
   const [userExperience, setExperience] = useState([]);
   const token = process.env.REACT_APP_TOKENACCESS;
   // const fetchedUserId = ""
-
+  console.log("THIS IS MATCH.PARAMS",match.params.id)
   useEffect(() => {
     fetchExp();
     // console.log("Mounted", userExperience )
@@ -26,9 +26,9 @@ const Experience = (match) => {
   const fetchExp = async () => {
     try {
       let response = await fetch(
-        // match.params.id
-        //   ?  "https://striveschool-api.herokuapp.com/api/profile/"+ match.params.id +"/experiences"
-        // :
+        match.params.id
+       ?  "https://striveschool-api.herokuapp.com/api/profile/"+ match.params.id +"/experiences"
+       :
         "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/experiences",
         {
           method: "GET",
@@ -68,9 +68,8 @@ const Experience = (match) => {
                 <Col xs="1">
                   {!exp.image ?
                   ( <div></div>)
-                : ()
+                : (<img className="image" src={exp.image} alt="" />)
                 }
-                  <img className="image" src={exp.image} alt="" />
                 </Col> 
                 <Col xs="11">
                   <div className="ml-2">
