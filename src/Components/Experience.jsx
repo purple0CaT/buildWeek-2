@@ -66,8 +66,12 @@ const Experience = (match) => {
             <div>
               <Row>
                 <Col xs="1">
+                  {!exp.image ?
+                  ( <div></div>)
+                : ()
+                }
                   <img className="image" src={exp.image} alt="" />
-                </Col>
+                </Col> 
                 <Col xs="11">
                   <div className="ml-2">
                   <div className="text-left d-flex" style={{ height: "15px" }}>
@@ -77,11 +81,16 @@ const Experience = (match) => {
                     </div>
                   </div>
                   <div className="text-left my-0"> {exp.company}</div>
-                  {/* <div className="lighter-color text-left ml-4 my-0 py-0">{format(parseISO(exp.startDate), "MMM yyyy")}</div> */}
-                  <div className="lighter-color text-left my-0 py-0">
+                {!exp.endDate ? 
+                (<div className="lighter-color text-left my-0 py-0">
+                    {format(parseISO(exp.startDate), "MMM yyyy")} -{" "}                   
+                  </div>)
+                : 
+                (<div className="lighter-color text-left my-0 py-0">
                     {format(parseISO(exp.startDate), "MMM yyyy")} -{" "}
                     {format(parseISO(exp.endDate), "MMM yyyy")}
                   </div>
+                )}
                   <div className="lighter-color text-left my-0 py-0">
                     {exp.area}{" "}
                   </div>
