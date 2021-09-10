@@ -102,7 +102,11 @@ export default function EditBgImg({
             <Form.Group controlId="formSurname">
               <Form.Label>Edit image</Form.Label>
               <div className="d-flex justify-content-center">
-                <img src={imgSrc} alt="" className="avatarEdit" />
+                <img
+                  src={title === "post-img" ? postImg : imgSrc}
+                  alt=""
+                  className="avatarEdit"
+                />
               </div>
               <Form.File id="fileUpload" onChange={uploadF} required />
             </Form.Group>

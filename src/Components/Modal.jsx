@@ -40,10 +40,12 @@ const ModalItem = ({
         },
       });
       if (response.ok) {
-        const newPosts = await response.json();
+        const newPost = await response.json();
+
+        // if image upload image here
         // the comment has been sent succesfully!!
-        console.log("Posts", newPosts);
-        onNewPost(newPosts);
+        console.log("Posts", newPost);
+        onNewPost(newPost);
       } else {
         console.log("error");
         alert("something went wrong");

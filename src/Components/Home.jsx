@@ -8,6 +8,7 @@ import About from "./About";
 import Dashboard from "./Dashboard";
 import Activity from "./Activity";
 import Experience from "./Experience";
+import ProfileHomePost from "./ProfileHomePost"
 
 const Home = () => {
   return (
@@ -19,7 +20,8 @@ const Home = () => {
           <MainContainer />
           <Dashboard />
           <About />
-          <Activity />
+          {/* <Activity /> */}
+          <ProfileHomePost />
           <Experience />
         </Col>
         <Col sm={0} md={3}>

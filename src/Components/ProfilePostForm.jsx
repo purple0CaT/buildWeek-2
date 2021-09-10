@@ -14,7 +14,7 @@ const PostForm = ({fetchPosts, meProfile}) => {
 
   const handlerPost = (e) => { setEnteredPost({ text: e.target.value })}
 
-const filesInput = useRef()
+//const filesInput = useRef()
 
   const submitPost = async (e) => {
     e.preventDefault()
@@ -30,43 +30,43 @@ const filesInput = useRef()
           body: JSON.stringify(enteredPost),
         }
       )
-       if (response.ok) {
-          setEnteredPost({ text: "" })
-          const post = await response.json()
-          const formData = new FormData()
-          formData.append("post", postImage)
+      //  if (response.ok) {
+      //     setEnteredPost({ text: "" })
+      //     const post = await response.json()
+      //     const formData = new FormData()
+      //     formData.append("post", postImage)
 
-          try {
-            const response = await fetch(
-              `https://striveschool-api.herokuapp.com/api/posts/ ${post._id}`,
-              {
-                method: "POST",
-                body: formData,
-                headers: {
-                  Authorization: "Bearer " + token,
-                },
-              }
-            )
+      //     try {
+      //       const response = await fetch(
+      //         `https://striveschool-api.herokuapp.com/api/posts/ ${post._id}`,
+      //         {
+      //           method: "POST",
+      //           body: formData,
+      //           headers: {
+      //             Authorization: "Bearer " + token,
+      //           },
+      //         }
+      //       )
 
-            if (response.ok) {
-              fetchPosts()
-              alert('your post was saved correctly!')
-            } else {
-              alert('your post was NOT saved correctly!')
-              console.log("error")
-            }
-          } catch (error) {
-            console.log(error)
-          }
-        } else {
-          console.log("there was an error ")
+      //       if (response.ok) {
+      //         fetchPosts()
+      //         alert('your post was saved correctly!')
+      //       } else {
+      //         alert('your post was NOT saved correctly!')
+      //         console.log("error")
+      //       }
+      //     } catch (error) {
+      //       console.log(error)
+      //     }
+      //   } else {
+      //     console.log("there was an error ")
+      //   }
+       if(response.ok){
+          alert('your post was saved correctly!')
         }
-        //    if(response.ok){
-        //       alert('your post was saved correctly!')
-        //     }
-        //    else {
-        //            alert('your post was NOT saved correctly!')
-        //        }
+       else {
+               alert('your post was NOT saved correctly!')
+           }
           } catch (error) {
           console.log(error)
       }
@@ -92,11 +92,11 @@ const filesInput = useRef()
                         type="text"
                         name=""
                         id=""
-                       //onChange={(e)=>handlerPost(e)}
-                        onChange={handlerPost}
+                       onChange={(e)=>handlerPost(e)}
+                        //onChange={handlerPost}
                       />
                     </div>
-                        <Button
+                        {/* <Button
                         variant="outline-primary"
                         onClick={() => {
                           filesInput.current.click()
@@ -109,10 +109,10 @@ const filesInput = useRef()
                         hidden
                         type="file"
                         onChange={(e) => setPostImage(e.target.files[0])}
-                      />
-                        {/* <Button id="d-button" variant="primary" type="submit">
+                      /> */}
+                       <Button id="d-button" variant="primary" type="submit">
                         Post
-                        </Button> */}
+                        </Button> 
                   </form>
                 </div>
                 <div className="d-flex justify-content-between my-2">
