@@ -29,6 +29,7 @@ function Feed() {
     posts[toUpdate] = updatedPost;
 
     setPosts([...posts]);
+    fetchPosts();
   };
 
   const fetchPosts = async () => {
