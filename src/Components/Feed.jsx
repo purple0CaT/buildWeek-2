@@ -17,6 +17,7 @@ function Feed() {
 
   const onNewPost = (newPost) => {
     setPosts([...posts, newPost]);
+    fetchPosts();
   };
 
   const onDeletePost = (postId) => {
