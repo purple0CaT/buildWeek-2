@@ -1,19 +1,14 @@
+import React from "react";
+import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
+import { ImPencil } from "react-icons/im";
 import { BsCardImage } from "react-icons/bs";
 
-const ImageForPost = ({
-  addPostFunction,
-  postId,
-  fetchPosts,
-  title,
-  renewData,
-}) => {
+export default function EditBgImg({ renewData, title, postId, fetchPosts }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-  const postImg = postId ? postId.image : "";
+  const postImg = postId.image;
   // Loaders
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
@@ -29,9 +24,8 @@ const ImageForPost = ({
     console.log(0, "Sending!", 0);
     setLoading(true);
     const url =
-      title === "post-img"
-        ? "https://striveschool-api.herokuapp.com/api/posts/" + postId._id
-        : "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/picture";
+      "https://striveschool-api.herokuapp.com/api/posts/" + postId._id;
+
     const token = process.env.REACT_APP_TOKENACCESS;
 
     let formData = new FormData();
@@ -70,29 +64,34 @@ const ImageForPost = ({
     }
   };
 
+  //   JSX
   return (
     <>
       <BsCardImage onClick={handleShow} size={25} className="mr-2" />
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Upload a photo</Modal.Title>
+          <Modal.Title>Edit image</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          {" "}
-          <input type="file" id="image-file" />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Form onSubmit={ImgUpload}>
+          <Modal.Body>
+            <Form.Group controlId="formSurname">
+              <Form.Label>Edit image</Form.Label>
+              <div className="d-flex justify-content-center">
+                <img src={postImg} alt="" className="avatarEdit" />
+              </div>
+              <Form.File id="fileUpload" onChange={uploadF} required />
+            </Form.Group>
+            {/* input */}
+          </Modal.Body>
+          <Modal.Footer>
+            {Success && <Alert variant="success">Success</Alert>}
+            {Loading && <Spinner animation="grow" />}
+            <Button variant="primary" type="submit">
+              Save
+            </Button>
+          </Modal.Footer>
+        </Form>
       </Modal>
     </>
   );
-};
-
-export default ImageForPost;
+}
