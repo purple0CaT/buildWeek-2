@@ -84,7 +84,7 @@ const MainContainer = ({ match }) => {
   //   JSX
   return (
     <div className="position-relative">
-      <div className="w-100 mt-5 person-info">
+      <div className="w-100 person-info">
         <Row>
           {/* BG IMAGE */}
           <Col xs="12" className="bg-image">

@@ -13,7 +13,6 @@ import ProfileHomePost from "./ProfileHomePost"
 const Home = () => {
   return (
     <Container>
-      <br />
       <Row>
         <Col sm={12} md={9}>
           <br />
