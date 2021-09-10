@@ -10,7 +10,6 @@ import Skeleton from "@material-ui/lab/Skeleton";
 import OpenTo from "./mainContBtns/OpenTo";
 import AddSection from "./mainContBtns/AddSection";
 import More from "./mainContBtns/More";
-import { useDetectClickOutside } from "react-detect-click-outside";
 
 const MainContainer = ({ match }) => {
   const token = process.env.REACT_APP_TOKENACCESS;
@@ -26,9 +25,11 @@ const MainContainer = ({ match }) => {
   //   UPDATE INFO
   useEffect(() => {
     fetchPerson();
+    fetchPersonExpir();
   }, []);
   useEffect(() => {
     fetchPerson();
+    fetchPersonExpir();
   }, [match.params]);
   //   !
   //   FETCHING
@@ -54,17 +55,32 @@ const MainContainer = ({ match }) => {
       }
     } catch (erorr) {}
   };
-  //   !
-  // TEST SECTION
-  const ref = useDetectClickOutside({ onTriggered: "" });
-
-  const setValueofBtn = () => {
-    setBtnsUpdate({
-      more: false,
-      addSection: false,
-      openTo: !BtnsUpdate.openTo,
-    });
+  //   FETCHING EXPP
+  const [PersonExpr, setPersonExpr] = useState({});
+  const fetchPersonExpir = async () => {
+    try {
+      let response = await fetch(
+        match.params.id
+          ? "https://striveschool-api.herokuapp.com/api/profile/" +
+              match.params.id +
+              "/experiences"
+          : "https://striveschool-api.herokuapp.com/api/profile/6135e0aa7be6c10015f9db9c/experiences",
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      if (response.ok) {
+        let data = await response.json();
+        setPersonExpr({ data });
+      } else {
+        console.log("Error");
+      }
+    } catch (erorr) {}
   };
+  //   !
   //   JSX
   return (
     <div className="position-relative">
@@ -243,15 +259,15 @@ const MainContainer = ({ match }) => {
                   )
                 )}
               </div>
-              {PersonInfo.data ? (
-                <a href="" className="d-flex align-items-center">
-                  <img
-                    src="https://media-exp1.licdn.com/dms/image/C4D0BAQFFQIjyDsOK0w/company-logo_100_100/0/1593351903670?e=1639008000&v=beta&t=38emh8r8X3fw7Ah3ky91KyaVJT_6wSkxl1MqF2QRf5E"
-                    alt=""
-                    style={{ height: "2rem" }}
-                  />
-                  <small className="font-weight-bold ml-2">Strive School</small>
-                </a>
+              {PersonExpr.data ? (
+                PersonExpr.data.slice(0, 3).map((person) => (
+                  <a href="" className="d-flex align-items-center my-1">
+                    <img src={person.image} alt="" style={{ height: "2rem" }} />
+                    <small className="font-weight-bold ml-2">
+                      {person.role}
+                    </small>
+                  </a>
+                ))
               ) : (
                 <Skeleton
                   className="mt-2 rounded"
