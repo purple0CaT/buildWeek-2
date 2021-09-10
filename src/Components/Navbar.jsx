@@ -176,12 +176,13 @@ const [meProfile, setMeProfile] = useState(null)
                       Strive School Student <br /> Full Stack Developer
                     </Col>
                   </Row>
+                  <Link to="/home">
                   <Button id="button-myPage" variant="outline-primary"
                     variant="outline-primary"
                   >
-    
                     View Profile
                   </Button>
+                  </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item id="dropMe">
