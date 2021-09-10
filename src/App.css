@@ -177,7 +177,7 @@ a.nav-link:hover {
 }
 
 #searchBar {
-  border: nond;
+  border: none !important;
   background-color: rgb(232, 245, 253);
   border-radius: 5px;
 }

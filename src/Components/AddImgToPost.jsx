@@ -4,11 +4,18 @@ import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { BsCardImage } from "react-icons/bs";
 
-export default function EditBgImg({ renewData, title, postId, fetchPosts }) {
+export default function EditBgImg({
+  imgSrc,
+  renewData,
+  valueAvatar,
+  title,
+  postId,
+  fetchPosts,
+}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const postImg = postId.image;
+  const postImg = postId ? postId.image : "";
   // Loaders
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
@@ -18,56 +25,12 @@ export default function EditBgImg({ renewData, title, postId, fetchPosts }) {
     console.log(e.target.files[0]);
     setImageUpld({ file: e.target.files[0] });
   };
-  // FETCH ===== <<<<
-  const ImgUpload = async (e) => {
-    e.preventDefault();
-    console.log(0, "Sending!", 0);
-    setLoading(true);
-    const url =
-      "https://striveschool-api.herokuapp.com/api/posts/" + postId._id;
-
-    const token = process.env.REACT_APP_TOKENACCESS;
-
-    let formData = new FormData();
-    let file = ImageUpld.file;
-    formData.append(title === "post-img" ? "post" : "profile", file);
-    // ==
-    try {
-      let response = await fetch(url, {
-        method: "POST",
-        body: formData,
-        // mode: "no-cors",
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      let data = await response.json();
-      if (response.ok) {
-        console.log(response);
-        console.log(data);
-        setLoading(false);
-        setSuccess(true);
-        setTimeout(() => {
-          setSuccess(false);
-        }, 1500);
-        setTimeout(() => {
-          handleClose();
-        }, 2000);
-        setTimeout(() => {
-          title === "post-img" ? fetchPosts() : renewData();
-        }, 2000);
-      } else {
-        console.log(response);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   //   JSX
   return (
     <>
       <BsCardImage onClick={handleShow} size={25} className="mr-2" />
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit image</Modal.Title>

@@ -204,7 +204,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
       <div className=" d-flex justify-content-center align-items-center edit-info-pencil">
         <div className="d-flex">
             <i class="bi bi-pencil lighter-color ml-auto"
-            style={{fontSize:"1.5rem"}} 
+            style={{fontSize:"1.3rem"}} 
             onClick={handleShow}>       
             </i>
         </div>
@@ -351,11 +351,8 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
                   </Col>
                   <Col xs="12">
                   <Form.Group controlId="formSurname">
-                    <Form.Label>Add Image</Form.Label>
-                    <div className="d-flex justify-content-center">
-                      <img src="" alt="" className="avatarEdit" />
-                    </div>
-                    <Form.File id="fileUpload" onChange={(e) => dataSet("file", e.target.files[0])} required />
+                    <Form.Label>Add Image</Form.Label>                  
+                    <Form.File id="fileUpload" onChange={(e) => dataSet("file", e.target.files[0])} />
                   </Form.Group>
                   </Col>
                 </Row>

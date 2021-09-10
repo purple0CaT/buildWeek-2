@@ -28,8 +28,40 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { RiPhoneFindLine, RiAdvertisementFill } from "react-icons/ri";
 import pro from "./download.png";
 import { Link, withRouter } from "react-router-dom";
-
+import { useState, useEffect } from "react";
 const LinkedinNavbar = () => {
+
+const token = process.env.REACT_APP_TOKENACCESS;
+const [meProfile, setMeProfile] = useState(null)
+
+  /* Function to fetch profile */
+  const fetchProfile = async () => {
+    try {
+      const response = await fetch(
+        "https://striveschool-api.herokuapp.com/api/profile/me",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      )
+      if (response.ok) {
+        const myProfile = await response.json()
+        console.log(myProfile)
+        setMeProfile(myProfile)
+      } else {
+        console.log("there was a4n error")
+      }
+    } catch (error) {
+      console.log("there was an error")
+    }
+  }
+  useEffect(() => {
+    fetchProfile()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+
   return (
     <div id="linkedIn-navbar" className="border-bottom">
       <Container id="main">
@@ -119,30 +151,38 @@ const LinkedinNavbar = () => {
             <Row className="NavIco">
               <Nav.Link>
                 <Col xs={6} md={4}>
-                  <Image id="miniat" src={pro} roundedCircle />
+                  <Image id="miniat" src={meProfile && meProfile.image} roundedCircle />
                 </Col>
               </Nav.Link>
             </Row>
             <Row>
+
               <NavDropdown id="navnMe" title="Me">
                 <NavDropdown.Item id="meForm">
                   <Row>
                     <Col>
                       <Image
                         id="miniat"
-                        src={pro}
+                        src={meProfile && meProfile.image}
                         roundedCircle
                         className="d-flex"
                       />
                     </Col>
-                    <Col id="" className="d-flex m-1"></Col>
+                    <Col id="" className="d-flex m-1">
+                      {meProfile &&
+                        `${meProfile.name} ${meProfile.surname}`}
+                    </Col>
                     <Col className="d-flex m-1">
                       Strive School Student <br /> Full Stack Developer
                     </Col>
                   </Row>
-                  <Button id="button-myPage" variant="outline-primary">
+                  <Link to="/home" style={{ textDecoration: 'none' }}>
+                  <Button id="button-myPage" variant="outline-primary"
+                    variant="outline-primary"
+                  >
                     View Profile
                   </Button>
+                  </Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item id="dropMe">

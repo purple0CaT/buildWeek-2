@@ -10,8 +10,10 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({});
   const [checkSort, markSort] = useState(false);
+  const [MyProfile, setMyProfile] = useState();
   const token = process.env.REACT_APP_TOKENACCESS;
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
+  const profileUrl = "https://striveschool-api.herokuapp.com/api/profile/me";
 
   const onNewPost = (newPost) => {
     setPosts([...posts, newPost]);
@@ -49,8 +51,28 @@ function Feed() {
     }
   };
 
+  const fetchPerson = async () => {
+    try {
+      const response = await fetch(profileUrl, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (response.ok) {
+        let data = await response.json();
+        setMyProfile({ data });
+      } else {
+        console.log("Error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
     fetchPosts();
+    fetchPerson();
   }, []);
 
   return (
@@ -65,11 +87,12 @@ function Feed() {
             <PostFeed onNewPostFunction={onNewPost} />
             {posts
               .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
-              .slice(0, 100)
+              .slice(0, 25)
               .map(
                 (post) =>
                   post.user && (
                     <SingleFeed
+                      MyProfileID={MyProfile}
                       onDeletePostFunction={onDeletePost}
                       onUpdatePostFunction={onUpdatePost}
                       fetchPosts={fetchPosts}

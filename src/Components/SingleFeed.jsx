@@ -16,10 +16,11 @@ const SingleFeed = ({
   onDeletePostFunction,
   onUpdatePostFunction,
   fetchPosts,
+  MyProfileID,
 }) => {
   const url = "https://striveschool-api.herokuapp.com/api/posts/";
   const token = process.env.REACT_APP_TOKENACCESS;
-
+  const profileId = MyProfileID.data._id;
   const deletePost = async () => {
     try {
       const response = await fetch(url + post._id, {
@@ -63,18 +64,20 @@ const SingleFeed = ({
               </p>
             </div>
           </div>
-          <div className="ml-auto">
-            <button id="three-dots" onClick={deletePost}>
-              <BsFillTrashFill variant="danger" />
-            </button>
+          {profileId === post.user._id && (
+            <div className="ml-auto">
+              <button id="three-dots" onClick={deletePost}>
+                <BsFillTrashFill variant="danger" />
+              </button>
 
-            <ModalItem
-              title="update"
-              postToUpdate={post}
-              onUpdatePost={onUpdatePostFunction}
-              fetchPosts={fetchPosts}
-            />
-          </div>
+              <ModalItem
+                title="update"
+                postToUpdate={post}
+                onUpdatePost={onUpdatePostFunction}
+                fetchPosts={fetchPosts}
+              />
+            </div>
+          )}
         </Card.Title>
         <Card.Text>{post.text}</Card.Text>
         {post.image && <Card.Img src={post.image} />}

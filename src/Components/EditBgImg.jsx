@@ -3,8 +3,9 @@ import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { BsCardImage } from "react-icons/bs";
+import {withRouter} from "react-router-dom"
 
-export default function EditBgImg({
+function EditBgImg({
   imgSrc,
   renewData,
   valueAvatar,
@@ -102,7 +103,11 @@ export default function EditBgImg({
             <Form.Group controlId="formSurname">
               <Form.Label>Edit image</Form.Label>
               <div className="d-flex justify-content-center">
-                <img src={imgSrc} alt="" className="avatarEdit" />
+                <img
+                  src={title === "post-img" ? postImg : imgSrc}
+                  alt=""
+                  className="avatarEdit"
+                />
               </div>
               <Form.File id="fileUpload" onChange={uploadF} required />
             </Form.Group>
@@ -119,4 +124,6 @@ export default function EditBgImg({
       </Modal>
     </>
   );
-}
+};
+
+export default withRouter(EditBgImg);

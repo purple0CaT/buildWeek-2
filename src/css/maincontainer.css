@@ -1,3 +1,7 @@
+:root {
+  --main-blue: #0a66c2;
+}
+
 a {
   color: unset !important;
 }
@@ -7,7 +11,7 @@ a {
 .person-info {
   position: relative;
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
   border: 1px solid rgba(128, 128, 128, 0.281);
   background-color: white !important;
 }
@@ -15,6 +19,7 @@ a {
   position: relative;
   height: 20% !important;
   object-fit: cover;
+  border-radius: 10px;
 }
 .bg-image img {
   width: 100%;
@@ -49,7 +54,7 @@ a {
   position: absolute;
   border-radius: 50%;
   background-color: white;
-  color: rgb(97, 97, 255);
+  color: var(--main-blue);
   top: 1rem;
   right: 2rem;
 }
@@ -57,7 +62,7 @@ a {
   padding: 3.5rem 1.5rem 1.5rem 1.5rem !important;
 }
 .contact-info {
-  color: #1163b4 !important;
+  color: var(--main-blue) !important;
   cursor: pointer;
 }
 .btn {
@@ -65,7 +70,7 @@ a {
   padding: 0.2rem 0.8rem !important;
   margin: 0.2rem 0.2rem;
 }
- /* @media screen and (max-width: 380px) {
+/* @media screen and (max-width: 380px) {
   .avatar {
     top: 5%;
   }
@@ -74,15 +79,14 @@ a {
   } */
 @media screen and (max-width: 450px) {
   .avatar {
-left: 30%;
+    left: 30%;
+  }
+  .name-box {
+    margin-top: 1.8rem !important;
+  }
 }
-.name-box {
-  margin-top: 1.8rem !important;
-}
-} 
 @media screen and (max-width: 991px) {
   .avatar {
     top: 5%;
   }
 }
-

@@ -42,23 +42,6 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
    
   }, []);
   
-  // EXPERIENCE Model:
-// {
-//     "_id": "5d925e677360c41e0046d1f5",  //server generated
-//     "role": "CTO",
-//     "company": "Strive School",
-//     "startDate": "2019-06-16",
-//     "endDate": "2019-06-16", //could be null
-//     "description": "Doing stuff here and there",
-//     "area": "Berlin",
-//     "username": "admin",  //server generated
-//     "createdAt": "2019-09-30T19:58:31.019Z",  //server generated
-//     "updatedAt": "2019-09-30T19:58:31.019Z",  //server generated
-//     "__v": 0  //server generated
-//     "image": ... //server generated on upload
-// }   
-
-
   //   EDITING INFO
   const [EditingInfo, setEditingInfo] = useState({
     role: "",
@@ -85,6 +68,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
     e.preventDefault();
     postData();
     handleClose();
+   
   };
 
   //   POSTING DATA
@@ -103,7 +87,6 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
       });
       if (response.ok) {
         let data = await response.json();
-        // renewData();
       } else {
         console.log("Error");
       }
@@ -119,7 +102,7 @@ const [selectedEndDate, setSelectedEndDate] = useState("2021-09-09")
       <div className=" d-flex justify-content-center align-items-center edit-info-pencil">
         <div className="d-flex">
       <i class="bi bi-plus-lg lighter-color ml-auto"
-      style={{fontSize:"1.5rem"}} 
+      style={{fontSize:"1.3rem"}} 
       onClick={handleShow}>       
       </i>
 

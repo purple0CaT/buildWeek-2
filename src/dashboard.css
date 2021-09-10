@@ -34,3 +34,8 @@ border-radius: 10px;
 .lighter-color{
   color: #666666;
 }
+.dashboard-text{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  height:16px;
+}
