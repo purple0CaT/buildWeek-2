@@ -170,9 +170,9 @@ const MainContainer = ({ match }) => {
                       })
                     }
                   >
-                    Opent To
+                    {match.params.id ? "Connect" : "Open to"}
                   </Button>
-                  {BtnsUpdate.openTo && <OpenTo />}
+                  {BtnsUpdate.openTo && <OpenTo personAcc={match.params.id} />}
                 </div>
                 {/* AddSec */}
                 <div className="position-relative">
@@ -187,9 +187,14 @@ const MainContainer = ({ match }) => {
                       })
                     }
                   >
-                    Add section
+                    {match.params.id ? "Message" : "Add section"}
                   </Button>
-                  {BtnsUpdate.addSection && <AddSection />}
+                  {BtnsUpdate.addSection && (
+                    <AddSection
+                      name={PersonInfo.data.name}
+                      personAcc={match.params.id}
+                    />
+                  )}
                 </div>
                 {/* more */}
                 <div className="position-relative">
@@ -206,7 +211,7 @@ const MainContainer = ({ match }) => {
                   >
                     More
                   </Button>
-                  {BtnsUpdate.more && <More />}
+                  {BtnsUpdate.more && <More personAcc={match.params.id} />}
                 </div>
               </div>
             </Col>
