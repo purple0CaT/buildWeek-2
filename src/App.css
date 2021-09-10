@@ -1,6 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   text-align: center;
   background-color: #f3f2ef;
+  position: relative;
 }
 
 footer ul li {
@@ -107,7 +112,7 @@ div.text-left button {
 
 #linkedIn-navbar {
   background-color: rgb(255, 255, 255);
-  position: fixed;
+  position: sticky;
   top: 0;
   right: 0;
   left: 0;
@@ -230,4 +235,134 @@ a.nav-link:hover {
 }
 .aside-row {
   margin-top: 70px;
+}
+
+.user-img img {
+  width: 50px;
+}
+
+.feed .user-info h4 {
+  font-size: 14px;
+  color: #000000e6;
+}
+.feed .user-info p {
+  font-size: 12px;
+  color: #00000099;
+}
+.footer-icons {
+  margin-left: -30px;
+}
+.footer-icons div {
+  padding: 10px 8px;
+}
+
+.footer-icons div:hover {
+  background-color: #f2f3ef;
+}
+
+.footer-icons div span {
+  font-size: 14px;
+}
+
+.profile-img img {
+  width: 60px;
+}
+
+.wrapper {
+  max-width: 100%;
+}
+
+#post-card .card-body {
+  margin-left: -10px;
+}
+
+.post-btn #modal-btn {
+  width: calc(100% - 10px);
+  text-align: start;
+  background-color: #fff;
+  border: 1px solid #0000008c;
+  color: #00000099;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 10px 8px 10px 16px;
+  margin: 4px 0px;
+  font-size: 14px;
+}
+
+.post-btn #modal-btn:hover {
+  background-color: #f2f3ef;
+}
+.icons-wrapper {
+  max-width: 100%;
+  justify-content: space-around;
+  padding: 10px 0px 4px;
+}
+.icons-wrapper div {
+  padding: 0px 8px;
+}
+.icons-wrapper div:hover {
+  background-color: #f2f3ef;
+}
+#privacy-btn {
+  text-align: start;
+  background-color: #fff;
+  border: 1px solid #0000008c;
+  color: #00000099;
+  font-weight: bold;
+  border-radius: 20px;
+
+  margin: 0px 0px 4px;
+  font-size: 14px;
+}
+
+#input {
+  width: 100%;
+
+  border: none;
+  word-wrap: break-word;
+  word-break: break-all;
+  height: 80px;
+}
+#input:focus {
+  border: none;
+}
+#post-input::placeholder {
+  margin-bottom: 100px;
+}
+.hashtag {
+  border: none;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+div.icons-footer svg {
+  margin-right: 15px;
+}
+
+#modal-footer {
+  margin-left: 12px;
+  padding: 0;
+  justify-content: flex-start;
+}
+
+#three-dots,
+#update-btn {
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+  margin: 0;
+  font-size: 20px;
+  padding: 5px 7px;
+  color: #00000099;
+}
+#three-dots {
+  color: red;
+}
+#three-dots:hover,
+#update-btn:hover {
+  background-color: rgb(219, 215, 215);
+}
+
+button#three-dots::after {
+  content: "";
 }

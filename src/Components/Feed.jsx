@@ -1,14 +1,87 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import SingleFeed from "./SingleFeed";
+import { useState, useEffect } from "react";
+import PostFeed from "./Post";
+import FeedLeftBar from "./FeedLeftBar";
+import FeedRightBar from "./FeedRightBar";
 
 function Feed() {
+  const [posts, setPosts] = useState([]);
+  const [newPost, setNewPost] = useState({});
+  const [checkSort, markSort] = useState(false);
+  const token = process.env.REACT_APP_TOKENACCESS;
+  const url = "https://striveschool-api.herokuapp.com/api/posts/";
+
+  const onNewPost = (newPost) => {
+    setPosts([...posts, newPost]);
+  };
+
+  const onDeletePost = (postId) => {
+    setPosts(posts.filter((post) => post._id !== postId));
+  };
+
+  const onUpdatePost = (updatedPost) => {
+    const toUpdate = posts.map((x) => x._id).indexOf(updatedPost._id);
+
+    posts[toUpdate] = updatedPost;
+
+    setPosts([...posts]);
+  };
+
+  const fetchPosts = async () => {
+    try {
+      let response = await fetch(url, {
+        method: "GET",
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (response.ok) {
+        let data = await response.json();
+
+        setPosts(data);
+      } else {
+        console.log("Error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
   return (
     <>
+      <br />
       <Container>
-        <Row style={{ marginTop: 100 }}>
-          <Col md="2">Side Bar</Col>
-          <Col md="7">Feedbacks</Col>
-          <Col md="3">Another Side Bar</Col>
+        <Row>
+          <Col md="3">
+            <FeedLeftBar />
+          </Col>
+          <Col md="6">
+            <PostFeed onNewPostFunction={onNewPost} />
+            {posts
+              .sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+              .slice(0, 100)
+              .map(
+                (post) =>
+                  post.user && (
+                    <SingleFeed
+                      onDeletePostFunction={onDeletePost}
+                      onUpdatePostFunction={onUpdatePost}
+                      fetchPosts={fetchPosts}
+                      post={post}
+                      key={post._id}
+                    />
+                  )
+              )}
+          </Col>
+          <Col md="3">
+            <FeedRightBar />
+          </Col>
         </Row>
       </Container>
     </>

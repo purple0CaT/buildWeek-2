@@ -1,0 +1,91 @@
+.sideCard {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  background-color: white !important;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  transition: 0.2s !important;
+}
+.sideCardPick {
+  color: black !important;
+  transition: 0.2s;
+  margin: 0.2rem 0;
+}
+.RSideBContent {
+  max-height: 15.5rem;
+  overflow: hidden;
+  transition: 0.2;
+}
+.sideCardPick:hover {
+  text-decoration: none;
+  background-color: #ebebeb !important;
+}
+.RshowMore {
+  border-radius: 5px !important;
+  cursor: pointer;
+  width: 7rem;
+  text-align: center;
+  transition: 0.2s;
+}
+.RshowMore:hover {
+  background-color: #ebebeb;
+}
+.RshowMore2 h6 {
+  font-size: 0.8rem !important;
+  transition: 0.2s;
+}
+.RshowMore2 {
+  border-radius: 5px !important;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.RshowMore2:hover h6 {
+  color: black !important;
+}
+.RshowMore2:hover {
+  background-color: #ebebeb;
+}
+.sticky {
+  position: sticky;
+  top: 5rem;
+}
+.promotedCard:hover p {
+  color: blue !important;
+}
+.promotedCard:hover small {
+  text-decoration: none !important;
+  color: black;
+}
+.promotedCard {
+  font-size: 0.8rem;
+}
+.infoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: 0.2s;
+}
+.infoIcon:hover {
+  background-color: #ebebeb !important;
+}
+
+.infoDialog {
+  position: absolute;
+  border-radius: 10px;
+  background-color: white !important;
+  right: 3rem;
+  top: -1rem;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 0.5rem;
+  width: 130% !important;
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
+}
+.infoDialogClose:hover {
+  cursor: pointer;
+  background-color: #ebebeb !important;
+}

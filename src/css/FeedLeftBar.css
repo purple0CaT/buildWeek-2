@@ -1,0 +1,80 @@
+.feedPersonInfo {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  background-color: white !important;
+  border: 1px solid rgba(128, 128, 128, 0.2);
+}
+.feed-profile-image {
+  position: absolute;
+  top: -50%;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+.growNetwork {
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  transition: 0.2s;
+}
+.growNetwork > a {
+  color: black !important;
+}
+.growNetwork > a:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+.feedLeftItem {
+  transition: 0.2s;
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+.feedLeftItem:hover .premiumForFree {
+  color: #0a66c2 !important;
+}
+.feedLeftItem:hover {
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+.myItems {
+  font-size: 0.9rem;
+}
+.myItems:hover {
+  transition: 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+.addGourpsEvents:hover {
+  text-decoration: none !important;
+  background-color: #ebebeb;
+  color: black;
+}
+.addGourpsEvents {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  border-radius: 50%;
+  color: gray;
+  transition: 0.2s;
+}
+.discoverMore {
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  width: 100%;
+}
+.discoverMore h6 {
+  color: gray;
+  text-decoration: none;
+}
+
+.discoverMore:hover h6 {
+  color: black !important;
+}
+.discoverMore:hover a {
+  text-decoration: none !important;
+}
+.discoverMore:hover {
+  background-color: #ebebeb;
+}
