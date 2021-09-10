@@ -15,7 +15,7 @@ export default function EditBgImg({
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const postImg = postId.image;
+  const postImg = postId ? postId.image : "";
   // Loaders
   const [Loading, setLoading] = useState(false);
   const [Success, setSuccess] = useState(false);
