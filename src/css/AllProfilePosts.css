@@ -1,0 +1,145 @@
+/*ProfilePostForm css*/
+
+.post-form {
+  height: 11rem;
+  background-color: white;
+  border-radius: 12px;
+}
+.post-form .post-center {
+  padding: 20px;
+}
+
+.post-form .post-profile-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.post-form input.post-input {
+  height: 50px;
+  width: 90%;
+  border-radius: 20px;
+  color: #818181;
+  border: solid 1px;
+  cursor: pointer;
+}
+
+
+.post-form input.post-input:hover {
+  background-color: rgba(212, 248, 245, 0.945);
+}
+
+.post-form span {
+  padding-left: 19px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #5f5c5c;
+}
+.post-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px;
+}
+
+.post-input {
+  border: none;
+  width: 100%;
+}
+
+.post-input:focus {
+  outline: none;
+}
+
+.modal-box {
+  height: 15rem;
+}
+
+#d-button {
+    position: relative;
+    left: 95%;
+    bottom: 45px;
+}
+
+/*modal ProfileHomePost css*/
+#but1{
+    position: relative;
+    left: 77%;
+    background-color: white; 
+    color: rgb(173, 162, 162);
+    border: none;
+    font-weight: 600;
+    font-size: larger;
+}
+
+#mod-body {
+    width: 850px;
+    height: 800px;
+}
+#mod-body-container {
+    width: 900px;
+    max-width: 1500px !important;
+}
+
+
+/* ProfilePost css*/
+
+
+.post-main {
+  background-color: white;
+  border-radius: 12px;
+  padding: 15px;
+  font-size: 14px;
+}
+
+.post-profile-img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.post-personal-info {
+  cursor: pointer;
+}
+
+.select {
+  border: none !important;
+  background-color: transparent;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.buttons-comments {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-button button {
+  background-color: transparent;
+  border: none;
+  line-height: 20px;
+  font-weight: 600;
+  color: #818181;
+  padding: 12px;
+}
+
+.post-button button:hover {
+  background-color: rgba(112, 107, 107, 0.1);
+
+  border-radius: 12px;
+}
+
+.post-button-icons {
+  font-size: 25px;
+}
+
+.dark-name-color {
+  color: black;
+}
