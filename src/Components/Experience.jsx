@@ -66,13 +66,10 @@ const Experience = ({match}) => {
             <div>
               <Row>
                 <Col xs="1">
-                  {!exp.image ?
-                  ( <div></div>)
-                : (<img className="image" src={exp.image} alt="" />)
-                }
                   {!exp.image ? (
                     <div></div>
-                  ) : (
+                  ) : ( 
+                 
                     <img className="image" src={exp.image} alt="" />
                   )}
                 </Col>
