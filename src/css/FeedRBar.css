@@ -46,7 +46,7 @@
 }
 .sticky {
   position: sticky;
-  top: 2rem;
+  top: 5rem;
 }
 .promotedCard:hover p {
   color: blue !important;
