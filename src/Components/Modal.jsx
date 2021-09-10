@@ -179,13 +179,21 @@ const ModalItem = ({
         </Modal.Body>
         <Modal.Footer id="modal-footer">
           <div className="icons-footer">
-            
-            {title === "post" ? <ImageForPost
-              uploadF={uploadF}
-              ImgUpload={ImgUpload}
-              Loading={Loading}
-              Success={Success}
-            /> : <EditBgImg />}
+            {title === "update" ? (
+              <EditBgImg
+                title="post-img"
+                postId={postToUpdate}
+                onUpdatePostFunction={onUpdatePost}
+                fetchPosts={fetchPosts}
+              />
+            ) : (
+              <ImageForPost
+                uploadF={uploadF}
+                ImgUpload={ImgUpload}
+                Loading={Loading}
+                Success={Success}
+              />
+            )}
             <AiFillPlaySquare size={25} />
             <HiDocumentText size={25} />
             <BsFillBriefcaseFill size={25} />

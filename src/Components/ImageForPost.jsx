@@ -4,7 +4,7 @@ import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { BsCardImage } from "react-icons/bs";
 
-export default function ImageForPost({ ImgUpload, uploadF, Loading, Success }) {
+export default function ImageForPost({ uploadF, Loading, Success }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
