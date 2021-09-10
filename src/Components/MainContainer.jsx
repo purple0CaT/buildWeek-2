@@ -7,13 +7,22 @@ import EditInfo from "./EditInfo";
 import { Link, withRouter } from "react-router-dom";
 import EditBgImg from "./EditBgImg";
 import Skeleton from "@material-ui/lab/Skeleton";
+import OpenTo from "./mainContBtns/OpenTo";
+import AddSection from "./mainContBtns/AddSection";
+import More from "./mainContBtns/More";
+import { useDetectClickOutside } from "react-detect-click-outside";
 
-function MainContainer({ match }) {
+const MainContainer = ({ match }) => {
   const token = process.env.REACT_APP_TOKENACCESS;
 
   const personId = "";
   const [PersonInfo, setPersonInfo] = useState([]);
   //   !
+  const [BtnsUpdate, setBtnsUpdate] = useState({
+    openTo: false,
+    addSection: false,
+    more: false,
+  });
   //   UPDATE INFO
   useEffect(() => {
     fetchPerson();
@@ -46,22 +55,40 @@ function MainContainer({ match }) {
     } catch (erorr) {}
   };
   //   !
+  // TEST SECTION
+  const ref = useDetectClickOutside({ onTriggered: "" });
+
+  const setValueofBtn = () => {
+    setBtnsUpdate({
+      more: false,
+      addSection: false,
+      openTo: !BtnsUpdate.openTo,
+    });
+  };
   //   JSX
   return (
-    <>
+    <div className="position-relative">
       <div className="w-100 mt-5 person-info">
         <Row>
           {/* BG IMAGE */}
           <Col xs="12" className="bg-image">
-            <img
-              src="https://media-exp1.licdn.com/dms/image/C4E16AQEsq53uWSPplg/profile-displaybackgroundimage-shrink_350_1400/0/1629185220320?e=1636588800&v=beta&t=brJaUskUvjk3_S4toz1F95-TPuzMELixFB8b4R9hsyo"
-              alt=""
-            />
-            {PersonInfo.data && (
+            <div
+              style={{
+                overflow: "hidden",
+                borderTopLeftRadius: "9px",
+                borderTopRightRadius: "9px",
+              }}
+            >
+              <img
+                src="https://media-exp1.licdn.com/dms/image/C4E16AQEsq53uWSPplg/profile-displaybackgroundimage-shrink_350_1400/0/1629185220320?e=1636588800&v=beta&t=brJaUskUvjk3_S4toz1F95-TPuzMELixFB8b4R9hsyo"
+                alt=""
+              />
+            </div>
+            {!match.params.id && PersonInfo.data && (
               <EditBgImg
                 imgSrc={PersonInfo.data.image}
                 renewData={() => fetchPerson()}
-								valueAvatar={true}
+                valueAvatar={true}
               />
             )}
             {/* AVATAR */}
@@ -77,7 +104,7 @@ function MainContainer({ match }) {
               <EditBgImg
                 imgSrc={PersonInfo.data.image}
                 renewData={() => fetchPerson()}
-								valueAvatar={false}
+                valueAvatar={false}
               />
             )}
           </Col>
@@ -118,44 +145,76 @@ function MainContainer({ match }) {
                   <Skeleton
                     className="rounded"
                     variant="rect"
-                    width={70}
-                    height={20}
+                    width={130}
+                    height={18}
                   />
                   <Skeleton
                     className="mt-2 rounded"
                     variant="rect"
-                    width={150}
-                    height={10}
-                  />
-                  <Skeleton
-                    className="mt-2 rounded"
-                    variant="rect"
-                    width={100}
+                    width={120}
                     height={10}
                   />
                 </>
               )}
-              <div className="mt-3">
-                <Button className="font-weight-bold">Open to</Button>
-                <Button
-                  className="font-weight-bold"
-                  variant="outline-secondary"
-                >
-                  Add section
-                </Button>
-                <Button
-                  className="font-weight-bold"
-                  variant="outline-secondary"
-                >
-                  More
-                </Button>
+              <div className="mt-3 d-flex flex-wrap">
+                {/* opento */}
+                <div className="position-relative">
+                  <Button
+                    className="font-weight-bold position-relative"
+                    style={{ backgroundColor: "#0a66c2" }}
+                    onClick={() =>
+                      setBtnsUpdate({
+                        more: false,
+                        addSection: false,
+                        openTo: !BtnsUpdate.openTo,
+                      })
+                    }
+                  >
+                    Opent To
+                  </Button>
+                  {BtnsUpdate.openTo && <OpenTo />}
+                </div>
+                {/* AddSec */}
+                <div className="position-relative">
+                  <Button
+                    className="font-weight-bold position-relative"
+                    variant="outline-secondary"
+                    onClick={() =>
+                      setBtnsUpdate({
+                        more: false,
+                        openTo: false,
+                        addSection: !BtnsUpdate.addSection,
+                      })
+                    }
+                  >
+                    Add section
+                  </Button>
+                  {BtnsUpdate.addSection && <AddSection />}
+                </div>
+                {/* more */}
+                <div className="position-relative">
+                  <Button
+                    className="font-weight-bold position-relative"
+                    variant="outline-secondary"
+                    onClick={() =>
+                      setBtnsUpdate({
+                        more: !BtnsUpdate.more,
+                        openTo: false,
+                        addSection: false,
+                      })
+                    }
+                  >
+                    More
+                  </Button>
+                  {BtnsUpdate.more && <More />}
+                </div>
               </div>
             </Col>
             {/* RIGHT SIDE */}
             <Col xs="12" md="4" className="d-flex flex-column p-4">
               {" "}
               <div className="d-flex justify-content-end my-2">
-                {PersonInfo.data ? (
+                {!match.params.id && PersonInfo.data ? (
                   <EditInfo
                     personId={PersonInfo.data._id}
                     name={PersonInfo.data.name}
@@ -169,12 +228,14 @@ function MainContainer({ match }) {
                     renewData={fetchPerson}
                   />
                 ) : (
-                  <Skeleton
-                    className="mt-2 rounded-circle"
-                    variant="rect"
-                    width={25}
-                    height={25}
-                  />
+                  !match.params.id && (
+                    <Skeleton
+                      className="mt-2 rounded-circle"
+                      variant="rect"
+                      width={25}
+                      height={25}
+                    />
+                  )
                 )}
               </div>
               {PersonInfo.data ? (
@@ -190,16 +251,16 @@ function MainContainer({ match }) {
                 <Skeleton
                   className="mt-2 rounded"
                   variant="rect"
-                  width={80}
-                  height={35}
+                  width={140}
+                  height={25}
                 />
               )}
             </Col>
           </Col>
         </Row>
       </div>
-    </>
+    </div>
   );
-}
+};
 
 export default withRouter(MainContainer);

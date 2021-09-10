@@ -1,3 +1,7 @@
+:root {
+  --main-blue: #0a66c2;
+}
+
 .modalEditInfo .modal-dialog {
   margin: 2.5rem auto !important;
   max-width: 40% !important;
@@ -44,7 +48,7 @@ form label {
   margin: 0 0.1rem;
 }
 .addFormerBtn {
-  color: #296fb9;
+  color: var(--main-blue);
   cursor: pointer;
 }
 
@@ -64,7 +68,7 @@ form label {
   border-radius: 50%;
   float: right;
   cursor: pointer;
-  color: rgb(57, 122, 243);
+  color: var(--main-blue);
   height: 2rem !important;
   aspect-ratio: 1/1;
   font-size: 1rem !important;

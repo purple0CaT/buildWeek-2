@@ -2,8 +2,9 @@ import React from "react";
 import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
+import { withRouter } from "react-router";
 
-export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
+const EditBgImg = ({ imgSrc, renewData, valueAvatar, match }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -74,7 +75,13 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
           <ImPencil size="1rem" />
         </div>
       ) : (
-        <img className="avatar" src={imgSrc} alt="" onClick={handleShow} style={{cursor:'pointer'}}/>
+        <img
+          className="avatar"
+          src={imgSrc}
+          alt=""
+          onClick={!match.params.id && handleShow}
+          style={{ cursor: "pointer" }}
+        />
       )}
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -103,4 +110,6 @@ export default function EditBgImg({ imgSrc, renewData, valueAvatar }) {
       </Modal>
     </>
   );
-}
+};
+
+export default withRouter(EditBgImg);
