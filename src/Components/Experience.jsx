@@ -75,12 +75,10 @@ const Experience = ({match}) => {
                   ) : (
                     <img className="image" src={exp.image} alt="" />
                   )}
+                </Col>
                 <Col xs="11">
                   <div className="ml-2">
-                  <div className="text-left d-flex" style={{ height: "15px" }}>
-                    <h6 className="my-0 py-0"> {exp.role} </h6>
-                    <div className="d-flex ml-auto">
-                      <EditExperience userId={exp.user} expId={exp._id} />
+                    <div
                       className="text-left d-flex"
                       style={{ height: "15px" }}
                     >
