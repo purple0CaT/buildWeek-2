@@ -4,7 +4,10 @@ import { useState } from "react"
 import PostForm from "./ProfilePostForm"
 import Posts from "./ProfilePosts"
 import {Modal, Button} from "react-bootstrap"
+import {Link} from 'react-router-dom'
 import  "../css/AllProfilePosts.css"
+import "../activity.css"
+import "../experience.css"
 
 const ProfileHomePost = () => {
 
@@ -75,13 +78,28 @@ const ProfileHomePost = () => {
 
   return (
       <>
-      <div className="text-left ml-4 mr-4 mt-4 d-flex align-items-center">
-        <h5>
-          Activity
-        </h5>
-      <Button id="but1" onClick={handleShow}>
-        Start a post
-      </Button>
+          <div className="activity-container mt-3">
+            <div  className="text-left ml-4 mr-4 mt-4 d-flex" style={{height:"40px"}}>
+              <p className="mb-0 py-0">
+                <h5 style={{fontWeight:"480"}}>Activity</h5>
+              </p>
+              <Button id="but1" onClick={handleShow}>
+                Start a post
+              </Button>
+              </div>
+              <Link>
+              <div  className="text-left ml-4 mr-4 d-flex followers">
+                9 followers
+              </div>
+              </Link>
+              <div className="text-left ml-4 mr-4 mt-2">
+              <p style={{fontSize:"15px"}} >Posts you created, shared, or commented on in the last 90 days are displayed here.</p>
+              </div>
+              <hr className="mb-2"/>
+              <div className="lighter-color-activity text-center  mt-1 mb-2">
+                See all activity
+              </div>
+          </div>
 
       <Modal id="mod-body-container" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -102,7 +120,7 @@ const ProfileHomePost = () => {
           </Button>
         </Modal.Footer>
       </Modal>
-      </div>
+      
     </>
   )
 }
