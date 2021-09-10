@@ -43,6 +43,7 @@ export default function EditInfo({
   //   REFRESH
   useEffect(() => {
     fetchCountries();
+    // findCountry();
   }, []);
   //   COUNTRIES
   const [Countries, setCountries] = useState({});
@@ -64,9 +65,28 @@ export default function EditInfo({
   // DATA SEND
   const sendData = (e) => {
     e.preventDefault();
+    // setLocData();
     postData();
   };
-  //   FETCHING COUNTRIES
+  // COUNTRIES
+  // const [Country, setCountry] = useState({
+  //   city: null,
+  //   republ: null,
+  // });
+  // const setLocData = () => {
+  //   let dat = Country.city + " " + Country.republ;
+  //   setEditingInfo({
+  //     ...EditingInfo,
+  //     area: dat,
+  //   });
+  // };
+
+  // const findCountry = () => {
+  //   const [city, state, ...republ] = area.split(" ");
+  //   console.log(city, state, republ.join(" "));
+  //   setCountry({ city: city + " " + state, republ: republ.join(" ") });
+  // };
+  //   FETCHING
   const fetchCountries = async () => {
     try {
       let response = await fetch("https://restcountries.eu/rest/v2/all");
@@ -146,6 +166,7 @@ export default function EditInfo({
                 Edit intro
               </Modal.Title>
             </Modal.Header>
+            {/* FORM */}
             <Form onSubmit={(e) => sendData(e)}>
               <Modal.Body className="p-4">
                 <Row>
@@ -245,8 +266,6 @@ export default function EditInfo({
                       <Form.Label>Curent position</Form.Label>
                       <Form.Control
                         type="text"
-                        value={EditingInfo.title}
-                        onChange={(e) => dataSet("title", e.target.value)}
                         placeholder="... curent position"
                       />
                       <Form.Text className="addFormerBtn font-weight-bold pl-3">
@@ -292,11 +311,23 @@ export default function EditInfo({
                     <Form.Group controlId="formCountry">
                       <Form.Label>Country/Region *</Form.Label>
                       <Form.Control
-                        type="text"
+                        // as="select"
+                        // defaultValue={
+                        //   Countries.data &&
+                        //   Countries.data.filter((one) => one.name.includes(""))
+                        // }
                         value={EditingInfo.area}
-                        onChange={(e) => dataSet("area", e.target.value)}
-                        placeholder="...Country"
-                      />
+                        onChange={(e) =>
+                          setEditingInfo({ ...EditingInfo, area: e.target.value })
+                        }
+                      >
+                        {/* {Countries.data &&
+                          Countries.data.map((count) => (
+                            <option key={count.name + count.numericCode}>
+                              {count.name}
+                            </option>
+                          ))} */}
+                      </Form.Control>
                     </Form.Group>
                   </Col>
                   <Col xs="6">
@@ -313,18 +344,10 @@ export default function EditInfo({
                   <Col xs="6">
                     <Form.Group controlId="formCountry">
                       <Form.Label>Locations within this area</Form.Label>
-                      <Form.Control as="select" defaultValue="Locations...">
-                        <option>Locations...</option>
-                        {Countries.data ? (
-                          Countries.data.map((count) => (
-                            <option key={count.name + count.numericCode}>
-                              {count.name}
-                            </option>
-                          ))
-                        ) : (
-                          <option>Locations...</option>
-                        )}
-                      </Form.Control>
+                      <Form.Control
+                        type="text"
+                        placeholder="...Country"
+                      />
                     </Form.Group>
                   </Col>
                   {/* INDUSTRY */}

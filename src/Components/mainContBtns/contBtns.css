@@ -1,0 +1,27 @@
+.dropdownCard {
+  position: absolute;
+  left: 0;
+  top: 2.5rem;
+  max-width: 17rem !important;
+  width: 300% !important;
+  border-radius: 10px;
+  border: 1px solid rgba(128, 128, 128, 0.301) !important;
+  background-color: white !important;
+  color: black;
+  overflow: hidden !important;
+  box-shadow: 0 2px 5px gray;
+  z-index: 999;
+}
+.dropdownCard .linkCard {
+  padding: 0.4rem 1rem;
+  cursor: pointer !important;
+  transition: 0.2s;
+}
+.dropdownCard .linkCard:hover {
+  text-decoration: unset;
+  background-color: #ebebeb;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}

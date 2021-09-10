@@ -123,4 +123,6 @@ export default function EditBgImg({
       </Modal>
     </>
   );
-}
+};
+
+export default withRouter(EditBgImg);
