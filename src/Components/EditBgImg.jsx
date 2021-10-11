@@ -3,7 +3,7 @@ import { Modal, Button, Form, Spinner, Alert } from "react-bootstrap";
 import { useState } from "react";
 import { ImPencil } from "react-icons/im";
 import { BsCardImage } from "react-icons/bs";
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom";
 
 function EditBgImg({
   imgSrc,
@@ -40,6 +40,7 @@ function EditBgImg({
     let formData = new FormData();
     let file = ImageUpld.file;
     formData.append(title === "post-img" ? "post" : "profile", file);
+    console.log("formatDAta: ", formData);
     // ==
     try {
       let response = await fetch(url, {
@@ -124,6 +125,6 @@ function EditBgImg({
       </Modal>
     </>
   );
-};
+}
 
 export default withRouter(EditBgImg);
